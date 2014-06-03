@@ -14,4 +14,7 @@ IF WE HAVE TIME: implement new mode "TIME ATTACK", or include sound?
 
 Enemy variables: speed, size, color, frequency, new levels, point value, food value (how much larger does this make the fish?)
 
-use linkedlist to keep track of current fish on screen (easier to add and/or remove) 
+use linkedlist to keep track of current fish on screen (easier to add and/or remove) - Ling
+
+Made Player class seperate, fixed values to more appropriate numbers for our purposes - Fawn
+
