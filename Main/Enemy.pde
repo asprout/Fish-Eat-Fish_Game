@@ -1,12 +1,28 @@
 
 class Enemy { 
-    float Speed;
-    float Size;
-    float Color; 
-    float Freq;
-    float PointValue;
-    float FoodValue;
+    float speed;
+    float size;
+    int r, g, b;
+    float freq;
+    float pointValue;
+    float foodValue;
+    int centerX, centerY;
     
-    String Name;
+    String name;
     
-    Enemy(
+    Enemy(String n) {
+        name = n;
+        size = 10;
+        r = 0;
+        g = 0;
+        b = 300;
+        centerX = 300;
+        centerY = 300;
+    }
+    
+    void create(){
+      fill(r, g, b);
+      ellipse(centerX, centerY, size, size);
+    }
+}
+    
