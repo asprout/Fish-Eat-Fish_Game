@@ -2,9 +2,12 @@ class Player {
   float centerX, centerY;
   float accelX, accelY;
   float springing = 0.005, damping = 0.9;
+  float size;
+  
   Player(float x, float y) {
    centerX = x;
    centerY = y;
+   size = 20;
   }
   void update() {
     if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
@@ -20,7 +23,7 @@ class Player {
       accelX *= damping;
       accelY *= damping;
       fill(255);
-      ellipse(centerX, centerY, 20,20); 
+      ellipse(centerX, centerY, size, size); 
     }
   }    
 }
