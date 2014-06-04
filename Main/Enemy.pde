@@ -13,9 +13,9 @@ class Enemy {
     Enemy(String n) {
         name = n;
         size = 10;
-        r = 0;
-        g = 0;
-        b = 300;
+        r = 152;
+        g = 152;
+        b = 152;
         centerX = 300;
         centerY = 300;
     }
