@@ -18,3 +18,7 @@ use linkedlist to keep track of current fish on screen (easier to add and/or rem
 
 Made Player class seperate, fixed values to more appropriate numbers for our purposes - Fawn
 
+6.4
+
+created enemy superclass - Ling
+created TestFish class - Fawn
