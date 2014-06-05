@@ -22,8 +22,11 @@ class Player {
       centerY += accelY;
       accelX *= damping;
       accelY *= damping;
-      fill(255);
-      ellipse(centerX, centerY, size, size); 
+      redraw();
     }
+  }
+  void redraw() {
+    fill(255);
+    ellipse(centerX, centerY, size, size); 
   }    
 }

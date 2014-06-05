@@ -1,4 +1,3 @@
-
 class Enemy { 
     float speed;
     float size;
@@ -18,9 +17,10 @@ class Enemy {
         b = 152;
         centerX = 300;
         centerY = 300;
+        redraw();
     }
     
-    void create(){
+    void redraw(){
       fill(r, g, b);
       ellipse(centerX, centerY, size, size);
     }
