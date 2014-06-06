@@ -23,18 +23,26 @@ void draw() {
       fishies.remove(t);
       fishies.add(randomFish());
       break;
+    } 
+    else if (!canEat(t)) {
+      p = null;
     }
   }
 }
 
-boolean canEat(TestFish t) {
+boolean touching(TestFish t) {
   float distance = p.getSize() / 2 + t.getSize() / 2;
   boolean x = abs(t.getX() - p.getX()) < distance;
   boolean y = abs(t.getY() - p.getY()) < distance;
   return x && y;
 }
 
+boolean canEat(TestFish t) {
+  return touching(t) && (t.getSize() < p.getSize());
+}
+  
+
 TestFish randomFish() {
-  return new TestFish((int)random(255), (int)random(255), (int)random(255), (float)0, random(height), (int)random(20) + 1, (int)random(60) + 10);
+  return new TestFish((int)random(255), (int)random(255), (int)random(255), (float)0, random(height), (int)random(40) + 1, (int)random(60) + 10);
 }
 
