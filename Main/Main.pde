@@ -18,7 +18,7 @@ void draw() {
   //e.redraw();
   p.update();
   for (TestFish t : fishies) {
-    t.update();
+    t.update(p);
     if (canEat(t)) {
       fishies.remove(t);
       fishies.add(randomFish());
