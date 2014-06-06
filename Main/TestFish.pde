@@ -4,9 +4,9 @@ class TestFish {
   int r, g, b;
   float speed;
 
-  TestFish(int red, int green, int blue) {
-    centerX = 30;
-    centerY = 30;
+  TestFish(int red, int green, int blue, float startX, float startY) {
+    centerX = startX;
+    centerY = startY;
     size = 10;
     speed = 60;
     r = red;

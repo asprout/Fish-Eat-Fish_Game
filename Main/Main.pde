@@ -1,7 +1,6 @@
 Player p;
 Enemy e;
 ArrayList<TestFish> fishies = new ArrayList<TestFish>();
-
 void setup() {
   size(1000, 600); 
   frameRate(60);
@@ -9,7 +8,7 @@ void setup() {
   background(0);
   p = new Player(width/2, height/2);
   //e = new Enemy("fsh");
-  fishies.add(new TestFish(200, 50, 50));
+  fishies.add(new TestFish(200, 50, 50, 0, random(150)));
 }
 
 void draw() {
@@ -21,6 +20,7 @@ void draw() {
     t.update();
     if (canEat(t)) {
       fishies.remove(t);
+      fishies.add(new TestFish(200, 50, 50, 0, random(150)));
       break;
     }
   }
