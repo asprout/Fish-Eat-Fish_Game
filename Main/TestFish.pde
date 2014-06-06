@@ -3,23 +3,38 @@ class TestFish {
   float size;
   int r, g, b;
   float speed;
-  
+
   TestFish(int red, int green, int blue) {
-   centerX = 30;
-   centerY = 30;
-   size = 10;
-   speed = 60;
-   r = red;
-   g = green;
-   b = blue;
-   redraw();
+    centerX = 30;
+    centerY = 30;
+    size = 10;
+    speed = 60;
+    r = red;
+    g = green;
+    b = blue;
+    redraw();
   }
   void update() {
     centerX += speed/frameRate;
     redraw();
   }
   void redraw() {
-    fill(r,g,b);
-    ellipse(centerX, centerY, size, size); 
+    fill(r, g, b);
+    ellipse(centerX, centerY, size, size);
   }    
+
+  void die() {
+  }
+  float getX() {
+    return centerX;
+  }
+
+  float getY() {
+    return centerY;
+  }
+  
+  float getSize() {
+    return size;
+  }
 }
+

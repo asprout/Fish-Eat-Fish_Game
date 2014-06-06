@@ -2,7 +2,7 @@
 
 Edited the README file with a short description and some ideas; not finalized yet - Ling
 
-Reformated the README file, added Main file; currently only a circle that tracks mouse movements, need to figure out WASD/arrow key input - Fawn
+Reformated the README file, added Main file; currently only a circle that tracks mouse movements - Fawn
 
 
 6.3
@@ -18,7 +18,13 @@ use linkedlist to keep track of current fish on screen (easier to add and/or rem
 
 Made Player class seperate, fixed values to more appropriate numbers for our purposes - Fawn
 
+
 6.4
 
 created enemy superclass - Ling
 created TestFish class - Fawn
+
+
+6.5
+
+created eating function for the TestFish - Fawn
