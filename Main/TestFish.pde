@@ -32,7 +32,7 @@ class TestFish {
   float getY() {
     return centerY;
   }
-  
+
   float getSize() {
     return size;
   }

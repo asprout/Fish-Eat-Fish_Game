@@ -1,7 +1,6 @@
 Player p;
 Enemy e;
 ArrayList<TestFish> fishies = new ArrayList<TestFish>();
-
 void setup() {
   size(1000, 600); 
   frameRate(60);
@@ -36,6 +35,6 @@ boolean canEat(TestFish t) {
 }
 
 TestFish randomFish() {
-  return new TestFish((int)random(255),(int)random(255), (int)random(255), (float)0, random(height), (int)random(20) + 1, (int)random(60) + 10); 
+  return new TestFish((int)random(255), (int)random(255), (int)random(255), (float)0, random(height), (int)random(20) + 1, (int)random(60) + 10);
 }
 
