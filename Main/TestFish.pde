@@ -4,11 +4,11 @@ class TestFish {
   int r, g, b;
   float speed;
 
-  TestFish(int red, int green, int blue) {
-    centerX = 30;
-    centerY = 30;
-    size = 10;
-    speed = 60;
+  TestFish(int red, int green, int blue, float startX, float startY, int size, int speed) {
+    centerX = startX;
+    centerY = startY;
+    this.size = size;
+    this.speed = speed;
     r = red;
     g = green;
     b = blue;

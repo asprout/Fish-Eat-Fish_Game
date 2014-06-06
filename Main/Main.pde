@@ -9,7 +9,8 @@ void setup() {
   background(0);
   p = new Player(width/2, height/2);
   //e = new Enemy("fsh");
-  fishies.add(new TestFish(200, 50, 50));
+  for (int x = 0; x < 20; x++) 
+    fishies.add(randomFish());
 }
 
 void draw() {
@@ -21,6 +22,7 @@ void draw() {
     t.update();
     if (canEat(t)) {
       fishies.remove(t);
+      fishies.add(randomFish());
       break;
     }
   }
@@ -31,5 +33,9 @@ boolean canEat(TestFish t) {
   boolean x = abs(t.getX() - p.getX()) < distance;
   boolean y = abs(t.getY() - p.getY()) < distance;
   return x && y;
+}
+
+TestFish randomFish() {
+  return new TestFish((int)random(255),(int)random(255), (int)random(255), (float)0, random(height), (int)random(20) + 1, (int)random(60) + 10); 
 }
 
