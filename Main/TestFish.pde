@@ -26,9 +26,9 @@ class TestFish {
     redraw();
   }
   void update(Player p) {
-    if (abs(p.getX() - centerX) < 50)
+    if (abs(p.getX() - centerX) < 20)
       speedX -= 1;
-    if (abs(p.getY() - centerY) < 50)
+    if (abs(p.getY() - centerY) < 20)
       speedY -= 1;    
     centerX += speedX/frameRate * dirX;
     centerY += speedY/frameRate * dirY;

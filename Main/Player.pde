@@ -1,7 +1,7 @@
 class Player {
   float centerX, centerY;
   float accelX, accelY;
-  float springing = 0.005, damping = 0.9;
+  float springing = 0.005, damping = 0.85;
   float size;
 
   Player(float x, float y) {
@@ -10,25 +10,31 @@ class Player {
     size = 20;
   }
   void update() {
-    if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
-      System.out.println("centerX: " + centerX + ", centerY: " + centerY);
-      float deltaX = mouseX-centerX;
-      float deltaY = mouseY-centerY;
-      deltaX *= springing;
-      deltaY *= springing;
-      accelX += deltaX;
-      accelY += deltaY;
-      centerX += accelX;
-      centerY += accelY;
-      accelX *= damping;
-      accelY *= damping;
-      redraw();
-    }
+    float deltaX = mouseX-centerX;
+    float deltaY = mouseY-centerY;
+    deltaX *= springing;
+    deltaY *= springing;
+    accelX += deltaX;
+    accelY += deltaY;
+    centerX += accelX;
+    centerY += accelY;
+    if (centerX < size / 2)
+      centerX = size / 2;
+    if (centerX > width - size / 2) 
+      centerX = width - size / 2;
+    if (centerY < size / 2)
+      centerY = size / 2;
+    if (centerY > height - size / 2) 
+      centerY = height - size / 2;
+    accelX *= damping;
+    accelY *= damping;
+    redraw();
   }
   void redraw() {
     fill(255);
     ellipse(centerX, centerY, size, size);
   }  
+
   float getX() {
     return centerX;
   }
