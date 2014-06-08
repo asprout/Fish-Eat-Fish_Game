@@ -29,8 +29,14 @@ created TestFish class - Fawn
 
 created eating function for the TestFish - Fawn
 
+
 6.6
 
 worked on enemy/thing classes, created the touching function - Ling
 
 enemy fish now react to approaching player - Fawn
+
+
+6.7
+
+fixed player boundaries, worked on death/eaten behavior - Fawn
