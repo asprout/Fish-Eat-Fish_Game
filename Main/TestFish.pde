@@ -37,12 +37,27 @@ class TestFish {
       centerX += speedX/frameRate * dirX;
       centerY += speedY/frameRate * dirY;
       redraw();
-    }
+    } 
     else {
-      if (abs(p.centerX - centerX) < 20)
-        speedX += 10;
-      if (abs(p.centerY - centerY) < 20)
-        speedY += 10;    
+      if (abs(p.centerX - centerX) < 20) {
+        speedX += 1;
+        if (p.centerX - centerX < 0 ) 
+          dirX = -1;
+        else if (p.centerX - centerX == 0)
+          dirX = 0;
+        else 
+          dirX = 1;       
+      }
+     if (abs(p.centerY - centerY) < 20) {
+        speedY += 1;
+        if (p.centerY - centerY < 0 ) 
+          dirY= -1;
+        else if (p.centerY - centerY == 0)
+          dirY = 0;
+        else 
+          dirY = 1;
+        
+      }   
       centerX += speedX/frameRate * dirX;
       centerY += speedY/frameRate * dirY;
       redraw();
