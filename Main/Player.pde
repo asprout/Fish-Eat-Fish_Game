@@ -9,6 +9,7 @@ class Player {
     centerY = y;
     size = 20;
   }
+  
   void update() {
     float deltaX = mouseX-centerX;
     float deltaY = mouseY-centerY;
@@ -18,33 +19,26 @@ class Player {
     accelY += deltaY;
     centerX += accelX;
     centerY += accelY;
-    if (centerX < size / 2)
-      centerX = size / 2;
-    if (centerX > width - size / 2) 
-      centerX = width - size / 2;
-    if (centerY < size / 2)
-      centerY = size / 2;
-    if (centerY > height - size / 2) 
-      centerY = height - size / 2;
+    checkBounds();
     accelX *= damping;
     accelY *= damping;
     redraw();
   }
+  
   void redraw() {
     fill(255);
     ellipse(centerX, centerY, size, size);
   }  
-
-  float getX() {
-    return centerX;
-  }
-
-  float getY() {
-    return centerY;
-  }
-
-  float getSize() {
-    return size;
+  
+  void checkBounds() {
+    if (centerX < size / 2)
+      centerX = size / 2;
+    if (centerX > width - size / 2) 
+      centerX = width - size / 2;
+    if (centerY < barHeight + size / 2)
+      centerY = barHeight + size / 2;
+    if (centerY > height - size / 2) 
+      centerY = height - size / 2;
   }
 }
 

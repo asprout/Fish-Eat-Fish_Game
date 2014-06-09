@@ -25,32 +25,20 @@ class TestFish {
     b = blue;
     redraw();
   }
+  
   void update(Player p) {
-    if (abs(p.getX() - centerX) < 20)
+    if (abs(p.centerX - centerX) < 20)
       speedX -= 1;
-    if (abs(p.getY() - centerY) < 20)
+    if (abs(p.centerY - centerY) < 20)
       speedY -= 1;    
     centerX += speedX/frameRate * dirX;
     centerY += speedY/frameRate * dirY;
     redraw();
   }
+  
   void redraw() {
     fill(r, g, b);
     ellipse(centerX, centerY, size, size);
   }    
-
-  void die() {
-  }
-  float getX() {
-    return centerX;
-  }
-
-  float getY() {
-    return centerY;
-  }
-
-  float getSize() {
-    return size;
-  }
 }
 

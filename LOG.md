@@ -40,3 +40,8 @@ enemy fish now react to approaching player - Fawn
 6.7
 
 fixed player boundaries, worked on death/eaten behavior - Fawn
+
+
+6.8
+
+added "menu" bar, fixed boundaries accordingly; also kind of started the comboBar? - Fawn
