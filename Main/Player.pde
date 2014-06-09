@@ -3,6 +3,7 @@ class Player {
   float accelX, accelY;
   float springing = 0.005, damping = 0.85;
   float size;
+  int dirX, dirY;
 
   Player(float x, float y) {
     centerX = x;
@@ -10,7 +11,24 @@ class Player {
     size = 20;
   }
   
+  
+  void updateDirection(){
+      if (mouseX - centerX < 0)
+        dirX = -1;
+       if (mouseX - centerX > 0)
+         dirX = 1;
+       if (mouseX == centerX)
+         dirX = 0;
+       if (mouseY - centerY < 0)
+        dirY = -1;
+       if (mouseY - centerY > 0)
+         dirY = 1;
+       if (mouseY == centerY)
+         dirY = 0;
+  }
+  
   void update() {
+    updateDirection();
     float deltaX = mouseX-centerX;
     float deltaY = mouseY-centerY;
     deltaX *= springing;

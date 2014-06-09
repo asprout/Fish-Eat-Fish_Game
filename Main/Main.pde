@@ -67,6 +67,6 @@ boolean canBeEaten(TestFish t) {
 }
 
 TestFish randomFish() {
-  return new TestFish((int)random(255), (int)random(255), (int)random(255), (int)random(2) * width, random(height - barHeight) + barHeight, (int)random(20) + 5, (int)random(60) + 10);
+  return new TestFish((int)random(255), (int)random(255), (int)random(255), (int)random(2) * width, random(height - barHeight) + barHeight, (int)random(25) + 5, (int)random(60) + 10);
 }
 
