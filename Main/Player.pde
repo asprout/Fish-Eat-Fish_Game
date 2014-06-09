@@ -11,6 +11,13 @@ class Player {
     size = 20;
   }
   
+  int getDirX(){
+    return dirX;
+  }
+  
+  int getDirY(){
+    return dirY;
+  }
   
   void updateDirection(){
       if (mouseX - centerX < 0)
