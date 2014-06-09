@@ -25,6 +25,10 @@ class Player {
     redraw();
   }
   
+  void upsize(float i){
+    size+=i;
+  }
+  
   void redraw() {
     fill(255);
     ellipse(centerX, centerY, size, size);

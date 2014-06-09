@@ -5,6 +5,7 @@ class TestFish {
   float speedX;
   float speedY;
   int dirX, dirY;
+  boolean smaller;
 
   TestFish(int red, int green, int blue, float startX, float startY, int size, int speed) {
     centerX = startX;
@@ -25,20 +26,36 @@ class TestFish {
     b = blue;
     redraw();
   }
-  
+
   void update(Player p) {
-    if (abs(p.centerX - centerX) < 20)
-      speedX -= 1;
-    if (abs(p.centerY - centerY) < 20)
-      speedY -= 1;    
-    centerX += speedX/frameRate * dirX;
-    centerY += speedY/frameRate * dirY;
-    redraw();
+    smaller = p.size > this.size;
+    if (smaller) {
+      if (abs(p.centerX - centerX) < 20)
+        speedX -= 1;
+      if (abs(p.centerY - centerY) < 20)
+        speedY -= 1;    
+      centerX += speedX/frameRate * dirX;
+      centerY += speedY/frameRate * dirY;
+      redraw();
+    }
+    else {
+      if (abs(p.centerX - centerX) < 20)
+        speedX += 10;
+      if (abs(p.centerY - centerY) < 20)
+        speedY += 10;    
+      centerX += speedX/frameRate * dirX;
+      centerY += speedY/frameRate * dirY;
+      redraw();
+    }
   }
-  
+
+  float getSize() {
+    return size;
+  }
+
   void redraw() {
     fill(r, g, b);
     ellipse(centerX, centerY, size, size);
-  }    
+  }
 }
 

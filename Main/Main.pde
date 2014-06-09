@@ -28,6 +28,7 @@ void draw() {
     for (TestFish t : fishies) {
       t.update(p);
       if (canEat(t)) {
+        p.upsize(t.getSize()*0.01);
         fishies.remove(t);
         fishies.add(randomFish());
         break;
