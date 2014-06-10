@@ -1,7 +1,7 @@
 Player p;
 Enemy e;
-ComboBar b;
-ArrayList<TestFish> fishies = new ArrayList<TestFish>();
+//ComboBar b;
+ArrayList<Fish> fishies = new ArrayList<Fish>();
 int timer;
 boolean dead;
 int barHeight;
@@ -16,9 +16,9 @@ void setup() {
   dead = false;
   p = new Player(width/2, height/2);
   //e = new Enemy("fsh");
-  b = new ComboBar();
+  //b = new ComboBar();
   for (int x = 0; x < 20; x++) 
-    fishies.add(randomFish());
+    fishies.add(randomFish(10));
 }
 
 void draw() {
@@ -27,49 +27,48 @@ void draw() {
     fill(0, 100);
     rect(0, 0, width, height);    
     p.update();
-    for (TestFish t : fishies) {
-      t.update(p);
-      if (canEat(t)) {
-        p.upsize(t.getSize()*0.01);
-        fishies.remove(t);
-        fishies.add(randomFish());
+    for (Fish f : fishies) {
+      f.update(p);
+      if (canEat(f)) {
+        p.upsize(f.size*0.01);
+        fishies.remove(f);
+        fishies.add(randomFish(10));
         break;
       } 
-      if (canBeEaten(t)) {
-        print("eaten");
-        fishies.remove(t);
+      if (canBeEaten(f)) {
+        fishies.remove(f);
         dead = true;
         break;
       }
     }
     if (timer % 30 == 0) 
-      fishies.add(randomFish());
+      fishies.add(randomFish(10));
     //menu bar
     fill(255,255);
     rect(0, 0, width, barHeight);
-    b.redraw();
+    //b.redraw();
   }
   //just for testing purposes -- pretty much this will be replaced by the lose one life function
   if (timer % 60 == 0)
     dead = false;
 }
 
-boolean touching(TestFish t) {
+boolean touching(Fish t) {
   float distance = p.size / 2 + t.size / 2;
   boolean x = abs(t.centerX - p.centerX) < distance;
   boolean y = abs(t.centerY - p.centerY) < distance;
   return x && y;
 }
 
-boolean canEat(TestFish t) {
+boolean canEat(Fish t) {
   return touching(t) && (t.size < p.size);
 }
 
-boolean canBeEaten(TestFish t) {
+boolean canBeEaten(Fish t) {
   return touching(t) && (t.size >= p.size);
 }
 
-TestFish randomFish() {
-  return new TestFish((int)random(255), (int)random(255), (int)random(255), (int)random(2) * width, random(height - barHeight) + barHeight, (int)random(25) + 5, (int)random(60) + 10);
+Fish randomFish(int s) {
+  return new Fish(s, random(width), random(height - barHeight) + barHeight);
 }
 
