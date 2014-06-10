@@ -11,22 +11,6 @@ class Player {
     size = 20;
   }
   
-  //float getCenterX(){
-   // return centerX;
-  //}
-  
-  //float getCenterY(){
-    //return centerY;
-  //}
-  
- // int getDirX(){
-   // return dirX;
- //}
-  
-  //int getDirY(){
-    //return dirY;
-  //}
-  
   void updateDirection(){
       if (mouseX - centerX < 0)
         dirX = -1;
