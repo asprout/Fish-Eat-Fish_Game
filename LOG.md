@@ -22,6 +22,7 @@ Made Player class seperate, fixed values to more appropriate numbers for our pur
 6.4
 
 created enemy superclass - Ling
+
 created TestFish class - Fawn
 
 
