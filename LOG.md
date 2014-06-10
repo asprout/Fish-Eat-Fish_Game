@@ -45,3 +45,9 @@ fixed player boundaries, worked on death/eaten behavior - Fawn
 6.8
 
 added "menu" bar, fixed boundaries accordingly; also kind of started the comboBar? - Fawn
+
+6.9
+
+worked on code for chasing and escaping - Fawn
+
+allowed fish to increase in size, adjusted code for fish swimming away and chasing (this is still buggy!) - Ling
