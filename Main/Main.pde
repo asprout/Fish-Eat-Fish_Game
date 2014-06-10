@@ -1,5 +1,6 @@
 Player p;
 Enemy e;
+ComboBar b;
 ArrayList<TestFish> fishies = new ArrayList<TestFish>();
 int timer;
 boolean dead;
@@ -15,6 +16,7 @@ void setup() {
   dead = false;
   p = new Player(width/2, height/2);
   //e = new Enemy("fsh");
+  b = new ComboBar();
   for (int x = 0; x < 20; x++) 
     fishies.add(randomFish());
 }
@@ -45,6 +47,7 @@ void draw() {
     //menu bar
     fill(255,255);
     rect(0, 0, width, barHeight);
+    b.redraw();
   }
   //just for testing purposes -- pretty much this will be replaced by the lose one life function
   if (timer % 60 == 0)

@@ -49,6 +49,6 @@ added "menu" bar, fixed boundaries accordingly; also kind of started the comboBa
 
 6.9
 
-worked on code for chasing and escaping - Fawn
+worked on code for chasing and escaping, kind of worked on combo bar? if just drawing the outline counts - Fawn
 
 allowed fish to increase in size, adjusted code for fish swimming away and chasing (this is still buggy!) - Ling
