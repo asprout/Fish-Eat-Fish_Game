@@ -73,10 +73,6 @@ class TestFish {
     return ((abs(p.centerX - centerX) < 20) && (abs(p.centerY - centerY) < 20));
   }
 
-  float getSize() {
-    return size;
-  }
-
   void redraw() {
     fill(r, g, b);
     ellipse(centerX, centerY, size, size);

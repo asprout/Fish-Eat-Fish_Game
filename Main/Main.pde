@@ -19,6 +19,8 @@ void setup() {
   //b = new ComboBar();
   for (int x = 0; x < 20; x++) 
     fishies.add(randomFish(10));
+    fishies.add(randomFish(20));
+    fishies.add(randomFish(30));
 }
 
 void draw() {
@@ -32,7 +34,7 @@ void draw() {
       if (canEat(f)) {
         p.upsize(f.size*0.01);
         fishies.remove(f);
-        fishies.add(randomFish(10));
+        fishies.add(randomFish(((int)(random(5)+1)*10)));
         break;
       } 
       if (canBeEaten(f)) {
@@ -69,6 +71,6 @@ boolean canBeEaten(Fish t) {
 }
 
 Fish randomFish(int s) {
-  return new Fish(s, (float)random(1) * width, random(height - barHeight) + barHeight);
+  return new Fish(s, (int)random(2) * width, random(height - barHeight) + barHeight);
 }
 

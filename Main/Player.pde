@@ -1,7 +1,7 @@
 class Player {
   float centerX, centerY;
   float accelX, accelY;
-  float springing = 0.005, damping = 0.85;
+  float springing = 0.025, damping = 0.25;
   float size;
   int dirX, dirY;
 

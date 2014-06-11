@@ -57,7 +57,12 @@ allowed fish to increase in size, adjusted code for fish swimming away and chasi
 
 6.10
 
-<<<<<<< HEAD
 worked on Fish classes - Fawn
 
 smaller fish now swim away upon approach (direction updates) - Ling
+
+6.11
+
+worked on combo bar - Fawn
+
+chasing function now works! - Ling
