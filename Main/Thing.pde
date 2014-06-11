@@ -23,5 +23,6 @@ class Thing {
   void redraw() {
     fill(r, g, b);
     ellipse(centerX, centerY, size, size);
-  }}}
+  }
+}
 
