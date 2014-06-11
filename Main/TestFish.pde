@@ -30,47 +30,46 @@ class TestFish {
   void update(Player p) {
     smaller = p.size > this.size;
     if (smaller) {
-      if (near()){
+      if (near()) {
         speedX -= 3;
         speedY -= 3;    
         dirX = dirX*-1;
         dirY = dirY*-1;
       }
-    } 
-    else {
-      if (near()){
+    } else {
+      if (near()) {
         speedX +=3;
         speedY +=3;
         changeDirection(p);
-      }   
+      }
     }
-      centerX += speedX/frameRate * dirX;
-      centerY += speedY/frameRate * dirY;
-      redraw();
+    centerX += speedX/frameRate * dirX;
+    centerY += speedY/frameRate * dirY;
+    redraw();
   }
 
-  void changeDirection(Player p){
+  void changeDirection(Player p) {
     dirX = p.dirX;
     dirY = p.dirY;
-    if (p.centerX > centerX){
+    if (p.centerX > centerX) {
       if (p.dirX < 0)
         dirX = 1;
     }
-    if (p.centerX < centerX){
+    if (p.centerX < centerX) {
       if (p.dirX > 0)
         dirX = -1;
     }
-    if (p.centerY > centerY){
+    if (p.centerY > centerY) {
       if (p.dirY < 0)
         dirX = 1;
     }
-    if (p.centerY < centerY){
+    if (p.centerY < centerY) {
       if (p.dirY > 0)
         dirY = -1;
     }
   }
 
-  boolean near(){
+  boolean near() {
     return ((abs(p.centerX - centerX) < 20) && (abs(p.centerY - centerY) < 20));
   }
 

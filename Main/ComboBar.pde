@@ -5,7 +5,7 @@ class ComboBar {
     stroke(10);
     strokeWeight(4);
     strokeCap(ROUND);
-    rect(30,30,150,20);
+    rect(30, 30, 150, 20);
     noStroke();
   }
 }

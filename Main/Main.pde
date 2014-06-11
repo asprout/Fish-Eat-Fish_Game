@@ -18,7 +18,7 @@ void setup() {
   //e = new Enemy("fsh");
   //b = new ComboBar();
   for (int x = 0; x < 20; x++) 
-    fishies.add(randomFish(50));
+    fishies.add(randomFish(10));
 }
 
 void draw() {
@@ -44,7 +44,7 @@ void draw() {
     if (timer % 30 == 0) 
       fishies.add(randomFish(10));
     //menu bar
-    fill(255,255);
+    fill(255, 255);
     rect(0, 0, width, barHeight);
     //b.redraw();
   }
@@ -71,5 +71,4 @@ boolean canBeEaten(Fish t) {
 Fish randomFish(int s) {
   return new Fish(s, (float)random(1) * width, random(height - barHeight) + barHeight);
 }
-
 

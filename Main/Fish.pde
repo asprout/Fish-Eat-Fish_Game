@@ -35,8 +35,7 @@ class Fish {
       centerX += speedX/frameRate * dirX;
       centerY += speedY/frameRate * dirY;
       redraw();
-    } 
-    else {
+    } else {
       if (abs(p.centerX - centerX) < 20) {
         speedX += 1;
       }

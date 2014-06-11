@@ -10,22 +10,22 @@ class Player {
     centerY = y;
     size = 20;
   }
-  
-  void updateDirection(){
-      if (mouseX - centerX < 0)
-        dirX = -1;
-       if (mouseX - centerX > 0)
-         dirX = 1;
-       if (mouseX == centerX)
-         dirX = 0;
-       if (mouseY - centerY < 0)
-        dirY = -1;
-       if (mouseY - centerY > 0)
-         dirY = 1;
-       if (mouseY == centerY)
-         dirY = 0;
-    }
-  
+
+  void updateDirection() {
+    if (mouseX - centerX < 0)
+      dirX = -1;
+    if (mouseX - centerX > 0)
+      dirX = 1;
+    if (mouseX == centerX)
+      dirX = 0;
+    if (mouseY - centerY < 0)
+      dirY = -1;
+    if (mouseY - centerY > 0)
+      dirY = 1;
+    if (mouseY == centerY)
+      dirY = 0;
+  }
+
   void update() {
     updateDirection();
     float deltaX = mouseX-centerX;
@@ -41,16 +41,16 @@ class Player {
     accelY *= damping;
     redraw();
   }
-  
-  void upsize(float i){
+
+  void upsize(float i) {
     size+=i;
   }
-  
+
   void redraw() {
     fill(255);
     ellipse(centerX, centerY, size, size);
   }  
-  
+
   void checkBounds() {
     if (centerX < size / 2)
       centerX = size / 2;
