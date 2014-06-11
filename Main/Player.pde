@@ -24,7 +24,7 @@ class Player {
          dirY = 1;
        if (mouseY == centerY)
          dirY = 0;
-  }
+    }
   
   void update() {
     updateDirection();

@@ -35,15 +35,16 @@ class Fish {
       centerX += speedX/frameRate * dirX;
       centerY += speedY/frameRate * dirY;
       redraw();
-    } else {
+    } 
+    else {
       if (abs(p.centerX - centerX) < 20) {
         speedX += 1;
       }
       if (abs(p.centerY - centerY) < 20) {
         speedY += 1;
       }   
-      centerX += speedX/frameRate * (1 * p.getDirX());
-      centerY += speedY/frameRate * (1 * p.getDirY());
+      centerX += speedX/frameRate ;
+      centerY += speedY/frameRate ;
       redraw();
     }
   }
@@ -81,4 +82,5 @@ class Fish {
     fill(r, g, b);
     ellipse(centerX, centerY, size, size);
   }
+}
 
