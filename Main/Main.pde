@@ -1,6 +1,6 @@
 Player p;
 Enemy e;
-//ComboBar b;
+ComboBar b;
 ArrayList<Fish> fishies = new ArrayList<Fish>();
 int timer;
 boolean dead;
@@ -16,7 +16,7 @@ void setup() {
   dead = false;
   p = new Player(width/2, height/2);
   //e = new Enemy("fsh");
-  //b = new ComboBar();
+  b = new ComboBar();
   for (int x = 0; x < 20; x++) 
     fishies.add(randomFish(10));
     fishies.add(randomFish(20));
@@ -33,8 +33,9 @@ void draw() {
       f.update(p);
       if (canEat(f)) {
         p.upsize(f.size*0.01);
+        b.addPercent((int)f.size);
+        fishies.add(randomFish((int)f.size));
         fishies.remove(f);
-        fishies.add(randomFish(((int)(random(5)+1)*10)));
         break;
       } 
       if (canBeEaten(f)) {
@@ -45,10 +46,18 @@ void draw() {
     }
     if (timer % 30 == 0) 
       fishies.add(randomFish(10));
+    if (timer % 60 == 0) 
+      fishies.add(randomFish(20));
+    if (timer % 240 == 0) 
+      fishies.add(randomFish(30));
+    if (timer % 480 == 0) 
+      fishies.add(randomFish(40)); 
+    if (timer % 900 == 0) 
+      fishies.add(randomFish(50));
     //menu bar
     fill(255, 255);
     rect(0, 0, width, barHeight);
-    //b.redraw();
+    b.redraw();
   }
   //just for testing purposes -- pretty much this will be replaced by the lose one life function
   if (timer % 60 == 0)

@@ -52,14 +52,14 @@ class Fish {
    void update(Player p) {
     smaller = p.size > this.size;
     if (smaller) {
-      if (near()) {
-        speedX -= 2.5;  
-        //dirX = dirX*-1;
-        //dirY = dirY*-1;
+      if (nearSmaller()) {
+        speedX += 2.5;  
+        dirX = dirX*-1;
+        dirY = dirY*-1;
       }
     } else {
-      if (near()) {
-        speedX +=20.5;
+      if (nearLarger()) {
+        speedX +=2.5;
         changeDirection(p);
       }
     }
@@ -89,8 +89,12 @@ class Fish {
     }
   }
 
-  boolean near() {
-    return ((abs(p.centerX - centerX) < 20) && (abs(p.centerY - centerY) < 20));
+  boolean nearSmaller() {
+    return ((abs(p.centerX - centerX) < 30) && (abs(p.centerY - centerY) < 30));
+  }
+  
+  boolean nearLarger() {
+    return ((abs(p.centerX - centerX) < 70) && (abs(p.centerY - centerY) < 70));
   }
   
   void setThings() {

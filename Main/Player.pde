@@ -8,7 +8,7 @@ class Player {
   Player(float x, float y) {
     centerX = x;
     centerY = y;
-    size = 20;
+    size = 15;
   }
 
   void updateDirection() {
