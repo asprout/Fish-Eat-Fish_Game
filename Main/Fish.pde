@@ -2,7 +2,6 @@ class Fish {
   float centerX, centerY;
   float size;
   int r, g, b;
-  int freq;
   float speedX;
   float speedY;
   int dirX, dirY;
