@@ -57,6 +57,7 @@ allowed fish to increase in size, adjusted code for fish swimming away and chasi
 
 6.10
 
-worked on chasing function - Ling
+<<<<<<< HEAD
+worked on Fish classes - Fawn
 
-worked on making final Fish class, and the multiple types of fish - Fawn
+smaller fish now swim away upon approach (direction updates) - Ling
