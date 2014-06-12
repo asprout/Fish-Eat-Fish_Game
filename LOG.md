@@ -61,8 +61,16 @@ worked on Fish classes - Fawn
 
 smaller fish now swim away upon approach (direction updates) - Ling
 
+
 6.11
 
 worked on combo bar - Fawn
 
 chasing function now works! - Ling
+
+
+6.12
+
+frenzy! - Ling
+
+more chasing things, acceleration - Fawn
