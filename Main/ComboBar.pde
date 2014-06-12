@@ -13,7 +13,7 @@ class ComboBar {
     if (percent >= 100)
       percent = 100;
     rect(35,35, 140*percent*0.01, 11);    
-    percent -= 0.1;
+    percent -= 0.05;
   }
   
   void addPercent(int s) {

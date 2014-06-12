@@ -19,8 +19,8 @@ void setup() {
   b = new ComboBar();
   for (int x = 0; x < 20; x++) 
     fishies.add(randomFish(10));
-    fishies.add(randomFish(20));
-    fishies.add(randomFish(30));
+  fishies.add(randomFish(20));
+  fishies.add(randomFish(30));
 }
 
 void draw() {
@@ -32,10 +32,7 @@ void draw() {
     for (Fish f : fishies) {
       f.update(p);
       if (canEat(f)) {
-        p.upsize(f.size*0.01);
-        b.addPercent((int)f.size);
-        fishies.add(randomFish((int)f.size));
-        fishies.remove(f);
+        eat(f);
         break;
       } 
       if (canBeEaten(f)) {
@@ -44,16 +41,7 @@ void draw() {
         break;
       }
     }
-    if (timer % 30 == 0) 
-      fishies.add(randomFish(10));
-    if (timer % 60 == 0) 
-      fishies.add(randomFish(20));
-    if (timer % 240 == 0) 
-      fishies.add(randomFish(30));
-    if (timer % 480 == 0) 
-      fishies.add(randomFish(40)); 
-    if (timer % 900 == 0) 
-      fishies.add(randomFish(50));
+    addFish();
     //menu bar
     fill(255, 255);
     rect(0, 0, width, barHeight);
@@ -81,5 +69,25 @@ boolean canBeEaten(Fish t) {
 
 Fish randomFish(int s) {
   return new Fish(s, (int)random(2) * width, random(height - barHeight) + barHeight);
+}
+
+void eat(Fish f) {
+  p.upsize(f.size*0.01);
+  b.addPercent((int)f.size);
+  fishies.add(randomFish((int)f.size));
+  fishies.remove(f);
+}
+
+void addFish() {
+  if (timer % 30 == 0) 
+    fishies.add(randomFish(10));
+  if (timer % 60 == 0) 
+    fishies.add(randomFish(20));
+  if (timer % 240 == 0) 
+    fishies.add(randomFish(30));
+  if (timer % 480 == 0) 
+    fishies.add(randomFish(40)); 
+  if (timer % 900 == 0) 
+    fishies.add(randomFish(50));
 }
 
