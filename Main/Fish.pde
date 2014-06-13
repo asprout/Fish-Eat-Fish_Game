@@ -77,17 +77,6 @@ class Fish {
     changeY(deltaY);
     smaller = p.size > this.size;
     if (smaller) {
-<<<<<<< HEAD
-      if (abs(deltaX) < 20)
-        accelX += size / 5 * dirX * -1;
-      if (abs(deltaY) < 20)
-        accelY += size / 5 * dirY * -1;
-    } else {
-      if (abs(deltaX) < 70) 
-        accelX += size / 5 * dirX;
-      if (abs(deltaY) < 70) 
-        accelY += size / 5 * dirY;
-=======
       if (nearSmaller(p)) {
         speedX += 2.5;  
         dirX = dirX*-1;
@@ -98,7 +87,6 @@ class Fish {
         speedX +=2.5;
         changeDirection(p);
       }
->>>>>>> fa6bd18f256d51c6c4f35aebc57f08d6701fb431
     }
     centerX += accelX/frameRate;
     centerY += accelY/frameRate;
@@ -126,7 +114,6 @@ class Fish {
     }
   }
 
-<<<<<<< HEAD
   void changeX(float d) {
     if (d < 0) 
       dirX = -1;
@@ -141,13 +128,7 @@ class Fish {
       dirY = 1;
   }
 
-  boolean nearSmaller() {
-    return ((abs(p.centerX - centerX) < 30) && (abs(p.centerY - centerY) < 30));
-  }
-
-  boolean nearLarger() {
-    return ((abs(p.centerX - centerX) < 70) && (abs(p.centerY - centerY) < 70));
-=======
+    
   boolean nearSmaller(Player p) {
     float temp = 15.0+size+p.size;
     return ((abs(p.centerX - centerX) < temp) && (abs(p.centerY - centerY) < temp));
@@ -156,7 +137,7 @@ class Fish {
   boolean nearLarger(Player p) {
     float temp = 15.0+size+p.size;
     return ((abs(p.centerX - centerX) < temp) && (abs(p.centerY - centerY) < temp));
->>>>>>> fa6bd18f256d51c6c4f35aebc57f08d6701fb431
+    
   }
 
   void setThings() {

@@ -71,6 +71,11 @@ chasing function now works! - Ling
 
 6.12
 
-frenzy! - Ling
+worked on frenzy! class - Ling
 
 more chasing things, acceleration - Fawn
+
+
+6.13
+
+worked on player death - now has three symbols to represent lives; game stops when all lives are lost - Ling

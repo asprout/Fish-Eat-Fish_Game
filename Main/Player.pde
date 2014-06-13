@@ -4,11 +4,31 @@ class Player {
   float springing = 0.025, damping = 0.25;
   float size;
   int dirX, dirY;
+  int lives = 3;
+  boolean dead;
 
   Player(float x, float y) {
     centerX = x;
     centerY = y;
     size = 15;
+  }
+
+  void displayLives(){
+    int temp = lives;
+    int pos = 900;
+    while (temp > 0) {
+      fill(255, 0, 0);  
+      ellipse(pos, 50, 30, 30);
+      temp-=1;
+      pos+=35;
+    }
+  }
+  
+  void loseLife(){
+    lives-=1;
+    if (lives <= 0){
+      dead = true;
+    }
   }
 
   void updateDirection() {
