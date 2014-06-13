@@ -14,8 +14,8 @@ class Fish {
     this.size = size;
     setThings();
     speedY = 0;
-    accelX = speedX;
-    accelY = speedY;
+    accelX = 0;
+    accelY = 0;
     if (startX < width/2)
       dirX = 1;
     else
@@ -77,31 +77,25 @@ class Fish {
     changeY(deltaY);
     smaller = p.size > this.size;
     if (smaller) {
-<<<<<<< HEAD
-      if (abs(deltaX) < 20)
+      if (within(deltaX, deltaY, 40)) {
         accelX += size / 5 * dirX * -1;
-      if (abs(deltaY) < 20)
         accelY += size / 5 * dirY * -1;
+      } 
     } else {
-      if (abs(deltaX) < 70) 
+      if (within(deltaX, deltaY, 100)) {
         accelX += size / 5 * dirX;
-      if (abs(deltaY) < 70) 
         accelY += size / 5 * dirY;
-=======
-      if (nearSmaller(p)) {
-        speedX += 2.5;  
-        dirX = dirX*-1;
-        dirY = dirY*-1;
+      } else {
+        accelX -= size / 5 * dirX;
+        accelY -= size / 5 * dirY;
+        if (accelX <= 0)
+          accelX = 0;
+        if (accelY <= 0)
+          accelY = 0;
       }
-    } else {
-      if (nearLarger(p)) {
-        speedX +=2.5;
-        changeDirection(p);
-      }
->>>>>>> fa6bd18f256d51c6c4f35aebc57f08d6701fb431
     }
-    centerX += accelX/frameRate;
-    centerY += accelY/frameRate;
+    centerX += (speedX + accelX) / frameRate * 1.5;
+    centerY += (speedY + accelY) / frameRate * 1.5;
     redraw();
   }
 
@@ -126,7 +120,6 @@ class Fish {
     }
   }
 
-<<<<<<< HEAD
   void changeX(float d) {
     if (d < 0) 
       dirX = -1;
@@ -141,23 +134,14 @@ class Fish {
       dirY = 1;
   }
 
-  boolean nearSmaller() {
-    return ((abs(p.centerX - centerX) < 30) && (abs(p.centerY - centerY) < 30));
+  boolean within(float dX, float dY, int s) {
+    return sqrt(sq(dX) + sq(dY)) <= s;
   }
 
   boolean nearLarger() {
     return ((abs(p.centerX - centerX) < 70) && (abs(p.centerY - centerY) < 70));
-=======
-  boolean nearSmaller(Player p) {
-    float temp = 15.0+size+p.size;
-    return ((abs(p.centerX - centerX) < temp) && (abs(p.centerY - centerY) < temp));
   }
-  
-  boolean nearLarger(Player p) {
-    float temp = 15.0+size+p.size;
-    return ((abs(p.centerX - centerX) < temp) && (abs(p.centerY - centerY) < temp));
->>>>>>> fa6bd18f256d51c6c4f35aebc57f08d6701fb431
-  }
+
 
   void setThings() {
     if (size == 10) {
