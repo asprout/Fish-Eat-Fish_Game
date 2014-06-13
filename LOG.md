@@ -79,3 +79,5 @@ more chasing things, acceleration - Fawn
 6.13
 
 worked on player death - now has three symbols to represent lives; game stops when all lives are lost - Ling
+
+fixed speed of game, chasing finally works properly - Fawn
