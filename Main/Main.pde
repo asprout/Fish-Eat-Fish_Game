@@ -3,7 +3,6 @@ Enemy e;
 ComboBar b;
 ArrayList<Fish> fishies = new ArrayList<Fish>();
 int timer;
-boolean dead;
 int barHeight;
 
 void setup() {
@@ -13,7 +12,6 @@ void setup() {
   timer = 0;
   barHeight = 80;
   background(0);
-  dead = false;
   p = new Player(width/2, height/2);
   //e = new Enemy("fsh");
   b = new ComboBar();
@@ -25,7 +23,7 @@ void setup() {
 
 void draw() {
   timer = timer + 1;
-  if (!dead) {
+  if (!(p.dead)) {
     fill(0, 100);
     rect(0, 0, width, height);    
     p.update();
@@ -37,7 +35,7 @@ void draw() {
       } 
       if (canBeEaten(f)) {
         fishies.remove(f);
-        dead = true;
+        p.loseLife();
         break;
       }
     }
@@ -46,10 +44,12 @@ void draw() {
     fill(255, 255);
     rect(0, 0, width, barHeight);
     b.redraw();
+    p.displayLives();
   }
+  /*
   //just for testing purposes -- pretty much this will be replaced by the lose one life function
   if (timer % 60 == 0)
-    dead = false;
+    dead = false; */
 }
 
 boolean touching(Fish t) {

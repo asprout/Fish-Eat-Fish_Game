@@ -134,12 +134,25 @@ class Fish {
       dirY = 1;
   }
 
+<<<<<<< HEAD
   boolean within(float dX, float dY, int s) {
     return sqrt(sq(dX) + sq(dY)) <= s;
   }
 
   boolean nearLarger() {
     return ((abs(p.centerX - centerX) < 70) && (abs(p.centerY - centerY) < 70));
+=======
+    
+  boolean nearSmaller(Player p) {
+    float temp = 15.0+size+p.size;
+    return ((abs(p.centerX - centerX) < temp) && (abs(p.centerY - centerY) < temp));
+  }
+  
+  boolean nearLarger(Player p) {
+    float temp = 15.0+size+p.size;
+    return ((abs(p.centerX - centerX) < temp) && (abs(p.centerY - centerY) < temp));
+    
+>>>>>>> aaeadfd88d16ea6bd0f73a35d71258a66c81ab62
   }
 
 
