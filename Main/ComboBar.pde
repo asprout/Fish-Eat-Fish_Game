@@ -25,7 +25,7 @@ class ComboBar {
   }
 
   void addPercent(int s) {
-    percent += s * 0.12;
+    percent += s * 0.2;
   }
 
   void displayFrenzy() {

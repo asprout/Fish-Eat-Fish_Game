@@ -79,15 +79,15 @@ void eat(Fish f) {
 }
 
 void addFish() {
-  if (timer % 30 == 0) 
-    fishies.add(randomFish(10));
   if (timer % 60 == 0) 
+    fishies.add(randomFish(10));
+  if (timer % 120 == 0) 
     fishies.add(randomFish(20));
   if (timer % 240 == 0) 
     fishies.add(randomFish(30));
   if (timer % 480 == 0) 
     fishies.add(randomFish(40)); 
-  if (timer % 900 == 0) 
+  if (timer % 960 == 0) 
     fishies.add(randomFish(50));
 }
 
