@@ -19,14 +19,14 @@ void setup() {
   //e = new Enemy("fsh");
   b = new Bar();
   for (int x = 0; x < 25; x++) {
-    fishies.add(randomFish((int)(10*(random(5)+1))));
+    fishies.add(randomFish((int)(random(3) + 1) * 10));
   }
 }
 
 void draw() {
   timer = timer + 1;
   if (score > highScore)
-     highScore = score;
+    highScore = score;
   if (!(p.dead)) {
     fill(0, 100);
     rect(0, 0, width, height);    
@@ -41,7 +41,7 @@ void draw() {
       if (canBeEaten(f)) {
         p.loseLife();
         break;
-      } 
+      }
     }
     addFish();
     //menu bar
@@ -49,27 +49,8 @@ void draw() {
     rect(0, 0, width, barHeight);
     b.redraw();
     p.displayLives();
-  }
-   else {
-     textSize(50);
-     text("GAME OVER", 370, 320);
-     textSize(30);
-     text("revive?", 380, 370);
-     text("start over?", 510, 370);
-     fill(255);
-     if (mousePressed){
-       if (abs(mouseY - 360) < 26){
-         if (abs(mouseX - 425) < 55)
-           p = new Player(width/2, height/2);
-         else if (abs(mouseX - 590) < 80)
-           setup();
-       }
-     }
-   }
-  /*
-  //just for testing purposes -- pretty much this will be replaced by the lose one life function
-   if (timer % 60 == 0)
-   dead = false; */
+  } else 
+    gameOver();
 }
 
 boolean touching(Fish t) {
@@ -92,7 +73,7 @@ Fish randomFish(int s) {
 }
 
 void eat(Fish f) {
-  p.upsize((f.size + 5) / p.size * 0.1);
+  p.upsize((f.size + 5) / p.size * 0.2);
   b.addPercent((f.size + 5) / p.size * f.size * 1.5);
   fishies.add(randomFish((int)f.size));
   fishies.remove(f);
@@ -109,5 +90,22 @@ void addFish() {
     fishies.add(randomFish(40)); 
   if (timer % 960 == 0) 
     fishies.add(randomFish(50));
+}
+
+void gameOver() {
+  textSize(50);
+  text("GAME OVER", 370, 320);
+  textSize(30);
+  text("revive?", 380, 370);
+  text("start over?", 510, 370);
+  fill(255);
+  if (mousePressed) {
+    if (abs(mouseY - 360) < 26) {
+      if (abs(mouseX - 425) < 55)
+        p = new Player(width/2, height/2);
+      else if (abs(mouseX - 590) < 80)
+        setup();
+    }
+  }
 }
 

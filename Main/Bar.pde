@@ -1,9 +1,10 @@
 class Bar {
-  float percent = 60;
+  float percent = 0;
   boolean frenzy;
 
   void displayScore(){ 
     fill(237, 83, 22);
+    textAlign(LEFT);
     textSize(20);
     text("score:", 200, 45);
     text(score, 270, 45);
