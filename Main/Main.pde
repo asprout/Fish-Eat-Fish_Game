@@ -36,7 +36,7 @@ void draw() {
       if (canBeEaten(f)) {
         p.loseLife();
         break;
-      }
+      } 
     }
     addFish();
     //menu bar
@@ -45,6 +45,17 @@ void draw() {
     b.redraw();
     p.displayLives();
   }
+   else {
+     textSize(50);
+     text("GAME OVER", 350, 320);
+     textSize(30);
+     text("press below to revive!", 350, 370);
+     fill(0, 102, 153);
+     rect(370, 400, 100, 100);
+     fill(255);
+     if (mousePressed)
+       p = new Player(width/2, height/2);
+   }
   /*
   //just for testing purposes -- pretty much this will be replaced by the lose one life function
    if (timer % 60 == 0)
