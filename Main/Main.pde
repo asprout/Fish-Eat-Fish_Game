@@ -1,6 +1,7 @@
 Player p;
 Enemy e;
 Bar b;
+StageList stages;
 int score;
 int highScore;
 ArrayList<Fish> fishies = new ArrayList<Fish>();
@@ -16,8 +17,9 @@ void setup() {
   barHeight = 80;
   background(0);
   p = new Player(width/2, height/2);
-  //e = new Enemy("fsh");
   b = new Bar();
+  stages = new StageList();
+  loadStages();
   for (int x = 0; x < 25; x++) {
     fishies.add(randomFish((int)(random(3) + 1) * 10));
   }
@@ -109,3 +111,8 @@ void gameOver() {
   }
 }
 
+void loadStages() {
+  stages.add(new Stage("one", 1)); 
+  stages.add(new Stage("two", 1)); 
+  stages.add(new Stage("three", 1)); 
+}

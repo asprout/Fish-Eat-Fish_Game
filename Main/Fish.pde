@@ -66,32 +66,39 @@ class Fish extends Enemy{
   }
 
   void setThings() {
-    if (size == 10) {
-      r = 105;
-      g = 210;
-      b = 231;
-      speedX = 30;
-    } else if (size == 20) {
-      r = 167;
-      g = 219;
-      b = 216;   
-      speedX = 25;
-    } else if (size == 30) {
-      r = 224;
-      g = 228;
-      b = 204;
-      speedX = 20;
-    } else if (size == 40) {
-      r = 243;
-      g = 134;
-      b = 48; 
-      speedX = 15;
-    } else if (size == 50) {
-      r = 250;
-      g = 105;
-      b = 0;  
-      speedX = 10;
-    }
+    int[][] colors = stages.head.colorList;
+    int ind = (int)size / 10 - 1;
+    stages.head.printColorList();
+    r = colors[ind][0];
+    g = colors[ind][1];
+    b = colors[ind][2];
+    speedX = 30 - (4 - (50 - 10) / 10) * 5;
+//    if (size == 10) {
+//      r = 105;
+//      g = 210;
+//      b = 231;
+//      speedX = 30;
+//    } else if (size == 20) {
+//      r = 167;
+//      g = 219;
+//      b = 216;   
+//      speedX = 25;
+//    } else if (size == 30) {
+//      r = 224;
+//      g = 228;
+//      b = 204;
+//      speedX = 20;
+//    } else if (size == 40) {
+//      r = 243;
+//      g = 134;
+//      b = 48; 
+//      speedX = 15;
+//    } else if (size == 50) {
+//      r = 250;
+//      g = 105;
+//      b = 0;  
+//      speedX = 10;
+//    }
   }
 
   void redraw() {
