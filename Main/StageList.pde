@@ -17,10 +17,8 @@ class StageList {
   
   void moveToNextStage() {
    Stage temp = head.getNextStage();
-   if (temp != null){
-     println("NEXT");
+   if (temp != null)
      head = temp; 
-   }
   }
 }
 

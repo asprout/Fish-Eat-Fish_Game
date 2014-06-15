@@ -7,6 +7,7 @@ int highScore;
 ArrayList<Fish> fishies = new ArrayList<Fish>();
 int timer;
 int barHeight;
+int multi;
 
 void setup() {
   score = 0;
@@ -20,8 +21,7 @@ void setup() {
   b = new Bar();
   stages = new StageList();
   loadStages();
-  println(stages.head.name);
-  fishies.add(randomFish(10));
+  multi = stages.head.multiplier;
   for (int x = 0; x < 25; x++) {
     fishies.add(randomFish((int)(random(3) + 1) * 10));
   }
@@ -39,7 +39,7 @@ void draw() {
       f.update();
       if (canEat(f)) {
         eat(f);
-        score += f.size;
+        score += f.size * multi;
         break;
       } 
       if (canBeEaten(f)) {
@@ -78,21 +78,21 @@ Fish randomFish(int s) {
 
 void eat(Fish f) {
   p.upsize((f.size + 5) / p.size * 0.2);
-  b.addPercent((f.size + 5) / p.size * f.size * 1.5);
+  b.addPercent((f.size + 5) / p.size * f.size * 0.75 * multi);
   fishies.add(randomFish((int)f.size));
   fishies.remove(f);
 }
 
 void addFish() {
-  if (timer % 60 == 0) 
+  if (timer % 30 == 0) 
     fishies.add(randomFish(10));
-  if (timer % 120 == 0) 
+  if (timer % 60 == 0) 
     fishies.add(randomFish(20));
-  if (timer % 240 == 0) 
+  if (timer % 120 == 0) 
     fishies.add(randomFish(30));
-  if (timer % 480 == 0) 
+  if (timer % 240 == 0) 
     fishies.add(randomFish(40)); 
-  if (timer % 960 == 0) 
+  if (timer % 480 == 0) 
     fishies.add(randomFish(50));
 }
 
@@ -117,7 +117,6 @@ void loadStages() {
   stages.add(new Stage("one", 1)); 
   stages.add(new Stage("two", 2));  
   stages.add(new Stage("three", 3)); 
-  //need this to get past initialempty head stage;
-  stages.moveToNextStage();stages.moveToNextStage();
+  //need this to get past initial empty head stage;
   stages.moveToNextStage();
 }

@@ -30,8 +30,9 @@ class Bar {
     rect(34, 34, 142*percent*0.01, 13);  
     if (!frenzy)   
       percent -= 0.05;
-    else
+    else {
       displayFrenzy();
+     }
     displayScore();
   }
 

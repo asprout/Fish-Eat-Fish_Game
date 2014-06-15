@@ -71,19 +71,13 @@ class Fish extends Enemy {
     r = colors[ind][0];
     g = colors[ind][1];
     b = colors[ind][2];
-    speedX = 30 - (4 - (50 - 10) / 10) * 5;
+    speedX = 30 - (4 - (50 - size) / 10) * 5;
+    speedX *= multi;
   }
 
   void redraw() {
     fill(r, g, b);
     ellipse(centerX, centerY, size, size);
-  }
-
-  void printColors(int[][] c) {
-    for (int[] i : c) {
-      for (int j : i) 
-        print(j);
-    }
   }
 }
 
