@@ -4,7 +4,7 @@ class ComboBar {
 
   void redraw() {
     stroke(10);
-    strokeWeight(4);
+    strokeWeight(2);
     strokeCap(ROUND);
     rect(30, 30, 150, 20);
     noStroke();    
@@ -17,7 +17,7 @@ class ComboBar {
     }
     if (percent <= 90) 
       frenzy = false;
-    rect(35, 35, 140*percent*0.01, 11);  
+    rect(34, 34, 142*percent*0.01, 13);  
     if (!frenzy)   
       percent -= 0.05;
     else

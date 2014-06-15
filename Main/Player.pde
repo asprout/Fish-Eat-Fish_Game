@@ -14,13 +14,20 @@ class Player {
   }
 
   void displayLives(){
-    int temp = lives;
+    int temp = 0;
     int pos = 900;
-    while (temp > 0) {
-      fill(255, 0, 0);  
-      ellipse(pos, 50, 30, 30);
-      temp-=1;
-      pos+=35;
+    while (temp < 3) {
+      if (temp < lives) 
+      fill(255, 0, 0);
+    else{
+      strokeWeight(1);
+      stroke(255,0,0);
+      noFill();  
+    }
+      ellipse(pos, 50, 25, 25);
+      noStroke();
+      temp+=1;
+      pos+=30;
     }
   }
   
