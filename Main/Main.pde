@@ -1,11 +1,14 @@
 Player p;
 Enemy e;
-ComboBar b;
+Bar b;
+int score;
+int highScore;
 ArrayList<Fish> fishies = new ArrayList<Fish>();
 int timer;
 int barHeight;
 
 void setup() {
+  score = 0;
   size(1000, 600); 
   frameRate(60);
   noStroke();
@@ -14,15 +17,16 @@ void setup() {
   background(0);
   p = new Player(width/2, height/2);
   //e = new Enemy("fsh");
-  b = new ComboBar();
-  for (int x = 0; x < 20; x++) 
-    fishies.add(randomFish(10));
-  fishies.add(randomFish(20));
-  fishies.add(randomFish(30));
+  b = new Bar();
+  for (int x = 0; x < 25; x++) {
+    fishies.add(randomFish((int)(10*(random(5)+1))));
+  }
 }
 
 void draw() {
   timer = timer + 1;
+  if (score > highScore)
+     highScore = score;
   if (!(p.dead)) {
     fill(0, 100);
     rect(0, 0, width, height);    
@@ -31,6 +35,7 @@ void draw() {
       f.update();
       if (canEat(f)) {
         eat(f);
+        score += f.size;
         break;
       } 
       if (canBeEaten(f)) {
@@ -47,14 +52,19 @@ void draw() {
   }
    else {
      textSize(50);
-     text("GAME OVER", 350, 320);
+     text("GAME OVER", 370, 320);
      textSize(30);
-     text("press below to revive!", 350, 370);
-     fill(0, 102, 153);
-     rect(370, 400, 100, 100);
+     text("revive?", 380, 370);
+     text("start over?", 510, 370);
      fill(255);
-     if (mousePressed)
-       p = new Player(width/2, height/2);
+     if (mousePressed){
+       if (abs(mouseY - 360) < 26){
+         if (abs(mouseX - 425) < 55)
+           p = new Player(width/2, height/2);
+         else if (abs(mouseX - 590) < 80)
+           setup();
+       }
+     }
    }
   /*
   //just for testing purposes -- pretty much this will be replaced by the lose one life function

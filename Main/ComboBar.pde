@@ -1,6 +1,15 @@
-class ComboBar {
+class Bar {
   float percent = 60;
   boolean frenzy;
+
+  void displayScore(){ 
+    fill(237, 83, 22);
+    textSize(20);
+    text("score:", 200, 45);
+    text(score, 270, 45);
+    text("high:", 330, 45);
+    text(highScore, 400, 45);
+  }
 
   void redraw() {
     stroke(10);
@@ -22,6 +31,7 @@ class ComboBar {
       percent -= 0.05;
     else
       displayFrenzy();
+    displayScore();
   }
 
   void addPercent(float s) {

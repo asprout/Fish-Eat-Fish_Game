@@ -86,3 +86,7 @@ fixed speed of game, chasing finally works properly - Fawn
 6.14
 
 fixed some values and calculations, new life animation - Fawn
+
+Created death screen; now able to restart or revive, changed start screen setup (fishies created), now keeps track of and shows score and highscore (incorporated into 'Bar,' formerly 'ComboBar', Fish now extends Enemy which extends Thing (bad edibles should extend Enemy, powerups should extend Thing), changed acceleration for Fish to make game easier - Ling
+
+bug in the game where player dies without touching nearby fish!
