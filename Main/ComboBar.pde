@@ -29,10 +29,11 @@ class ComboBar {
   }
 
   void displayFrenzy() {
-    percent -= 0.06;
+    percent -= 0.025;
+    textAlign(CENTER);
     textSize(32);
     fill(#FFCC00);
-    text("FRENZY!", mouseX, mouseY);
+    text("FRENZY", width / 2, barHeight + 100);
   }
 }
 

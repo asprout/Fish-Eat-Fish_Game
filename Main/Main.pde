@@ -26,7 +26,7 @@ void draw() {
   if (!(p.dead)) {
     fill(0, 100);
     rect(0, 0, width, height);    
-    p.update();
+      p.update();
     for (Fish f : fishies) {
       f.update(p);
       if (canEat(f)) {
@@ -34,7 +34,6 @@ void draw() {
         break;
       } 
       if (canBeEaten(f)) {
-        fishies.remove(f);
         p.loseLife();
         break;
       }
@@ -48,8 +47,8 @@ void draw() {
   }
   /*
   //just for testing purposes -- pretty much this will be replaced by the lose one life function
-  if (timer % 60 == 0)
-    dead = false; */
+   if (timer % 60 == 0)
+   dead = false; */
 }
 
 boolean touching(Fish t) {
@@ -60,11 +59,11 @@ boolean touching(Fish t) {
 }
 
 boolean canEat(Fish t) {
-  return touching(t) && (t.size < p.size);
+  return touching(t) && (t.size < p.size) && !p.lifeAnimation;
 }
 
 boolean canBeEaten(Fish t) {
-  return touching(t) && (t.size >= p.size);
+  return touching(t) && (t.size >= p.size) && !p.lifeAnimation;
 }
 
 Fish randomFish(int s) {
