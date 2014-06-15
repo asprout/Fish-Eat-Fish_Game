@@ -85,4 +85,4 @@ fixed speed of game, chasing finally works properly - Fawn
 
 6.14
 
-fixed some values and calculations - Fawn
+fixed some values and calculations, new life animation - Fawn
