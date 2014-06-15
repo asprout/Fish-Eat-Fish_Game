@@ -20,6 +20,8 @@ void setup() {
   b = new Bar();
   stages = new StageList();
   loadStages();
+  println(stages.head.name);
+  fishies.add(randomFish(10));
   for (int x = 0; x < 25; x++) {
     fishies.add(randomFish((int)(random(3) + 1) * 10));
   }
@@ -113,6 +115,9 @@ void gameOver() {
 
 void loadStages() {
   stages.add(new Stage("one", 1)); 
-  stages.add(new Stage("two", 1)); 
-  stages.add(new Stage("three", 1)); 
+  stages.add(new Stage("two", 2));  
+  stages.add(new Stage("three", 3)); 
+  //need this to get past initialempty head stage;
+  stages.moveToNextStage();stages.moveToNextStage();
+  stages.moveToNextStage();
 }

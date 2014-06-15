@@ -12,7 +12,6 @@ class Stage {
     multiplier = m;
     colorList = new int[5][3];
     loadColors();
-    printColorList();
   }
 
   void loadColors() {
@@ -40,14 +39,12 @@ class Stage {
   }
 
   void printColorList() {
-    for (int i = 0; i < 5; i++) {
-      println("i: " + i);
-      for (int j = 0; j < 3; j++){ 
-        print(j + ": ");
-        print(colorList[i][j] + " ");
-      }
-      println();
-    }
+     for (int[] i : colorList) {
+        for (int j : i) {
+           print(j + " ");
+        } 
+        println();
+     }
   }
   
   void setNextStage(Stage s) {
@@ -57,5 +54,6 @@ class Stage {
   Stage getNextStage() {
     return next;
   }
+  
 }
 

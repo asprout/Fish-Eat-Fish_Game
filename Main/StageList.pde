@@ -9,14 +9,18 @@ class StageList {
 
   void add(Stage s) {
     Stage temp = head;
-    for (int i = 0; i < size - 1; i ++)
+    for (int i = 0; i < size; i ++)
       temp = temp.getNextStage();
     temp.setNextStage(s);
+    size++;
   }
   
   void moveToNextStage() {
-   if (head.getNextStage() != null)
-     head = head.getNextStage(); 
+   Stage temp = head.getNextStage();
+   if (temp != null){
+     println("NEXT");
+     head = temp; 
+   }
   }
 }
 
