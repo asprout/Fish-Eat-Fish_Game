@@ -1,5 +1,5 @@
 class ComboBar {
-  float percent = 0;
+  float percent = 60;
   boolean frenzy;
 
   void redraw() {
@@ -24,12 +24,12 @@ class ComboBar {
       displayFrenzy();
   }
 
-  void addPercent(int s) {
+  void addPercent(float s) {
     percent += s * 0.2;
   }
 
   void displayFrenzy() {
-    percent -= 0.025;
+    percent -= 0.1;
     textAlign(CENTER);
     textSize(32);
     fill(#FFCC00);

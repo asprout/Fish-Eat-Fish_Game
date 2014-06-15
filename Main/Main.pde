@@ -26,9 +26,9 @@ void draw() {
   if (!(p.dead)) {
     fill(0, 100);
     rect(0, 0, width, height);    
-      p.update();
+    p.update();
     for (Fish f : fishies) {
-      f.update(p);
+      f.update();
       if (canEat(f)) {
         eat(f);
         break;
@@ -82,8 +82,8 @@ Fish randomFish(int s) {
 }
 
 void eat(Fish f) {
-  p.upsize(f.size*0.01);
-  b.addPercent((int)f.size);
+  p.upsize((f.size + 5) / p.size * 0.1);
+  b.addPercent((f.size + 5) / p.size * f.size * 1.5);
   fishies.add(randomFish((int)f.size));
   fishies.remove(f);
 }

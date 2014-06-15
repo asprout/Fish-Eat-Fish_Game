@@ -28,7 +28,7 @@ class Fish {
     redraw();
   }
 
-  void update(Player p) {
+  void update() {
     float deltaX = p.centerX-centerX;
     float deltaY = p.centerY-centerY;
     changeX(deltaX);
@@ -38,38 +38,17 @@ class Fish {
       if (within(deltaX, deltaY, (int)size * 4)) {
         accelX += 30 / size * dirX * -0.5;
         accelY += 30 / size * dirY * -0.5;
-      } 
+      }
     } else {
       if (within(deltaX, deltaY, (int)size * 4)) {
         //acceleration is greater the smaller it is
         accelX += 30 / size * dirX * 1;
         accelY += 30/ size * dirY * 1;
-      } 
+      }
     }
     centerX += (speedX + accelX) / frameRate * 1.5;
     centerY += (speedY + accelY) / frameRate * 1.5;
     redraw();
-  }
-
-  void changeDirection(Player p) {
-    dirX = p.dirX;
-    dirY = p.dirY;
-    if (p.centerX > centerX) {
-      if (p.dirX < 0)
-        dirX = 1;
-    }
-    if (p.centerX < centerX) {
-      if (p.dirX > 0)
-        dirX = -1;
-    }
-    if (p.centerY > centerY) {
-      if (p.dirY < 0)
-        dirX = 1;
-    }
-    if (p.centerY < centerY) {
-      if (p.dirY > 0)
-        dirY = -1;
-    }
   }
 
   void changeX(float d) {
@@ -87,11 +66,7 @@ class Fish {
   }
 
   boolean within(float dX, float dY, int s) {
-    return sqrt(sq(dX) + sq(dY)) <= s;
-  }
-
-  boolean nearLarger() {
-    return ((abs(p.centerX - centerX) < 70) && (abs(p.centerY - centerY) < 70));
+    return !p.lifeAnimation && sqrt(sq(dX) + sq(dY)) <= s;
   }
 
   void setThings() {

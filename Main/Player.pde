@@ -15,6 +15,20 @@ class Player {
     size = 15;
   }
 
+  void update() {    
+    if (lifeAnimation) {
+      b.percent *= 0.98;
+      if (timer > pauseTimer + 120) {
+        updateMovement(width / 2, (height + barHeight) / 2);
+        if (abs(centerY - (height + barHeight) / 2) < 15)
+          lifeAnimation = false;
+      }
+    } else {
+      updateMovement(mouseX, mouseY);
+    }
+    redraw();
+  }
+
   void displayLives() {
     int temp = 0;
     int pos = 900;
@@ -42,36 +56,6 @@ class Player {
     centerX = width / 2;
     centerY = 0;
     pauseTimer = timer;
-    b.percent = 0;
-  }
-
-  void updateDirection() {
-    if (mouseX - centerX < 0)
-      dirX = -1;
-    if (mouseX - centerX > 0)
-      dirX = 1;
-    if (mouseX == centerX)
-      dirX = 0;
-    if (mouseY - centerY < 0)
-      dirY = -1;
-    if (mouseY - centerY > 0)
-      dirY = 1;
-    if (mouseY == centerY)
-      dirY = 0;
-  }
-
-  void update() {
-    if (lifeAnimation) {
-      if (timer > pauseTimer + 120) {
-        updateMovement(width / 2, (height + barHeight) / 2);
-        if (abs(centerY - (height + barHeight) / 2) < 10)
-          lifeAnimation = false;
-      }
-    } else {
-      updateDirection();
-      updateMovement(mouseX, mouseY);
-    }
-    redraw();
   }
 
   void upsize(float i) {
@@ -95,9 +79,6 @@ class Player {
     checkBounds();
     accelX *= damping;
     accelY *= damping;
-  }
-
-  void newLifeAnimation() {
   }
 
   void checkBounds() {
