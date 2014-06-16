@@ -104,3 +104,5 @@ Temporary speed boost, multiplier, slowdown
 Start/Instruction/Win screen?
 Change fonts into vectors, they're a bit fuzzy
 Thing on the menu bar that lets you know what you can eat/can't eat
+
+changed the end screen so that player can play again, fixed bug where game starts on stage 3, fixed bug where player starts max size, added functionality (player invulnerable for a while after revival) - Ling

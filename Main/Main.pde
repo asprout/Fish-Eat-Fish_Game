@@ -21,6 +21,7 @@ void setup() {
   barHeight = 80;
   background(0);
   p = new Player(width/2, 0);
+  p.invulnerable = 0;
   b = new Bar();
   stages = new StageList();
   loadStages();
@@ -32,10 +33,13 @@ void setup() {
 void draw() {
   displayLevel();
   timer = timer + 1;
+  if (p.invulnerable > 0)
+    p.invulnerable -= 1;
   if (score > highScore)
     highScore = score;
-  if (win) 
+  if (win) {
     winScreen();
+  }
   else if (!(p.dead) && !win) {
     fill(0, 100);
     rect(0, 0, width, height);    
@@ -62,11 +66,15 @@ void updateFish() {
     }
     if (canEat(f)) {
       eat(f);
-      score += f.size * multi;
+      if (b.frenzy)
+        score += f.size * multi * 2;
+      else 
+        score += f.size * multi;
       break;
     } 
     if (canBeEaten(f)) {
       p.loseLife();
+      p.invulnerable += 40;
       break;
     }
   }
@@ -103,7 +111,7 @@ boolean canEat(Fish t) {
 }
 
 boolean canBeEaten(Fish t) {
-  return touching(t) && (t.size >= p.size) && !p.lifeAnimation;
+  return touching(t) && (t.size >= p.size) && !p.lifeAnimation && !(p.invulnerable > 0);
 }
 
 Fish randomFish(int s) {
@@ -112,7 +120,7 @@ Fish randomFish(int s) {
 
 void eat(Fish f) {
   p.upsize((f.size + 5) / p.size * 0.25);
-  b.addPercent((f.size + 5) / p.size * f.size * multi);
+  b.addPercent((f.size * 1.5) / p.size * multi);
   //fishies.add(randomFish((int)f.size));
   fishies.remove(f);
 }
@@ -130,10 +138,7 @@ void addFish() {
     fishies.add(randomFish(50));
 }
 
-void gameOver() {
-  textAlign(CENTER);
-  textSize(50);
-  text("GAME OVER", width / 2, height / 2);
+void gameOptions(){
   textSize(30);
   text("revive?", width / 2 - 100, height / 2 + 30);
   text("start over?", width / 2 + 100, height / 2 + 30);
@@ -146,6 +151,14 @@ void gameOver() {
         setup();
     }
   }
+  p.invulnerable += 40;
+}
+
+void gameOver() {
+  textAlign(CENTER);
+  textSize(50);
+  text("GAME OVER", width / 2, height / 2);
+  gameOptions();
 }
 
 void displayLevel() {
@@ -161,7 +174,8 @@ void winScreen() {
   textAlign(CENTER);
   textSize(50);
   fill(255);
-  text("YOU WIN", width / 2, (height + barHeight) / 2);
+  text("YOU WIN", width / 2, (height + barHeight) / 2 - 50);
+  gameOptions();
 }
 
 void loadStages() {
@@ -170,7 +184,7 @@ void loadStages() {
   stages.add(new Stage("three", 3)); 
   //need this to get past initial empty head stage;
   stages.moveToNextStage();
-  stages.moveToNextStage();
-  stages.moveToNextStage();
+  //stages.moveToNextStage();
+  //stages.moveToNextStage();
 }
 

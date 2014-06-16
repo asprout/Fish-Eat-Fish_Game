@@ -3,17 +3,20 @@ class Player {
   float accelX, accelY;
   float springing = 0.025, damping = 0.25;
   float size;
+  float prevSize;
   int dirX, dirY;
   int lives = 3;
   int pauseTimer = 0;
   boolean dead;
   boolean lifeAnimation;
+  int invulnerable;
 
   Player(float x, float y) {
     centerX = x;
     centerY = y;
-    size = 49;
+    size = 15;
   }
+  
 
   void update() {    
     if (lifeAnimation) {
