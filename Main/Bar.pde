@@ -25,14 +25,14 @@ class Bar {
       percent = 100;
       frenzy = true;
     }
-    if (percent <= 90) 
-      frenzy = false;
-    rect(34, 34, 142*percent*0.01, 13);  
-    if (!frenzy)   
-      percent -= 0.03;
-    else {
+    if (frenzy) {
       displayFrenzy();
-     }
+      if (percent <= 0) 
+       frenzy = false; 
+    }
+    else 
+      percent -= 0.03;
+    rect(34, 34, 142*percent*0.01, 13);  
     displayScore();
   }
 

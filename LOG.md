@@ -106,3 +106,8 @@ Change fonts into vectors, they're a bit fuzzy
 Thing on the menu bar that lets you know what you can eat/can't eat
 
 changed the end screen so that player can play again, fixed bug where game starts on stage 3, fixed bug where player starts max size, added functionality (player invulnerable for a while after revival) - Ling
+
+
+6.16
+
+made invulnerablity longer, frenzy makes the player move a bit faster, frenzy bar doesn't increase during frenzy so the player can't get internal frenzy - Fawn

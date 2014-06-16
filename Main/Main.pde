@@ -31,10 +31,11 @@ void setup() {
 }
 
 void draw() {
+  print(p.invulnerable);
   displayLevel();
-  timer = timer + 1;
   if (p.invulnerable > 0)
     p.invulnerable -= 1;
+  timer = timer + 1;
   if (score > highScore)
     highScore = score;
   if (win) {
@@ -74,14 +75,14 @@ void updateFish() {
     } 
     if (canBeEaten(f)) {
       p.loseLife();
-      p.invulnerable += 40;
+      p.invulnerable += 240;
       break;
     }
   }
 }
 
 void nextLevelCheck() {
-  if (p.size >= 50) 
+  if (p.size >= 48) 
     nextLevelAnimation = true; 
   if (nextLevelAnimation && fishies.size() == 0) {
     p.size -= 0.25;
@@ -107,7 +108,7 @@ boolean touching(Fish t) {
 }
 
 boolean canEat(Fish t) {
-  return touching(t) && (t.size < p.size) && !p.lifeAnimation;
+  return touching(t) && (t.size < p.size) && !p.lifeAnimation && !(p.invulnerable > 0);
 }
 
 boolean canBeEaten(Fish t) {
@@ -120,7 +121,8 @@ Fish randomFish(int s) {
 
 void eat(Fish f) {
   p.upsize((f.size + 5) / p.size * 0.25);
-  b.addPercent((f.size * 1.5) / p.size * multi);
+  if (!b.frenzy) 
+    b.addPercent((f.size + 5) / p.size * f.size * multi);
   //fishies.add(randomFish((int)f.size));
   fishies.remove(f);
 }

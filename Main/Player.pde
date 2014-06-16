@@ -18,7 +18,11 @@ class Player {
   }
   
 
-  void update() {    
+  void update() {
+    if (b.frenzy) 
+      springing = 0.05;
+    else 
+      springing = 0.025;  
     if (lifeAnimation) {
       b.percent *= 0.98;
       if (timer > pauseTimer + 120) {
@@ -42,7 +46,7 @@ class Player {
       else {
         noFill();
       }
-      ellipse(pos, 50, 25, 25);
+      ellipse(pos, barHeight / 2, 25, 25);
       noStroke();
       temp+=1;
       pos+=30;
