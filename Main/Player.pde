@@ -12,7 +12,7 @@ class Player {
   Player(float x, float y) {
     centerX = x;
     centerY = y;
-    size = 15;
+    size = 49;
   }
 
   void update() {    
@@ -23,9 +23,8 @@ class Player {
         if (abs(centerY - (height + barHeight) / 2) < 15)
           lifeAnimation = false;
       }
-    } else {
+    } else
       updateMovement(mouseX, mouseY);
-    }
     redraw();
   }
 

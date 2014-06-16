@@ -94,11 +94,10 @@ bug in the game where player dies without touching nearby fish!
 
 6.15
 
-fixed the death bug, level list done, colorrrrrs! - Fawn
+fixed the death bug, level list done, colorrrrrs!, transitions between stages, win screen kind of - Fawn
 
 THINGS LEFT TO DO:
 Frenzy thing
-Transitions between stages
 
 THINGS TO DO IF WE HAVE TIME:
 Temporary speed boost, multiplier, slowdown

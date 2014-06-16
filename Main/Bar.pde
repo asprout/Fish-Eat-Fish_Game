@@ -29,7 +29,7 @@ class Bar {
       frenzy = false;
     rect(34, 34, 142*percent*0.01, 13);  
     if (!frenzy)   
-      percent -= 0.05;
+      percent -= 0.03;
     else {
       displayFrenzy();
      }
