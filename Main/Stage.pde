@@ -39,14 +39,14 @@ class Stage {
   }
 
   void printColorList() {
-     for (int[] i : colorList) {
-        for (int j : i) {
-           print(j + " ");
-        } 
-        println();
-     }
+    for (int[] i : colorList) {
+      for (int j : i) {
+        print(j + " ");
+      } 
+      println();
+    }
   }
-  
+
   void setNextStage(Stage s) {
     next = s;
   }
@@ -54,6 +54,5 @@ class Stage {
   Stage getNextStage() {
     return next;
   }
-  
 }
 

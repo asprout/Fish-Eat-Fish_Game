@@ -14,9 +14,9 @@ class StageList {
     temp.setNextStage(s);
     size++;
   }
-  
+
   void moveToNextStage() {
-   head = head.getNextStage();
+    head = head.getNextStage();
   }
 }
 

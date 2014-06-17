@@ -19,6 +19,7 @@ A game based off of feeding frenzy using processing
 **What works:**
 * Fish run away / chase you depending on size
 * Transition animations between levels
+* Display that shows what you can and cannot eat
 * Frenzy bar
 * New life animations and invulnerability
 * Score and high score counts

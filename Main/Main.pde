@@ -1,5 +1,4 @@
 Player p;
-Enemy e;
 Bar b;
 StageList stages;
 int score;
@@ -8,6 +7,8 @@ ArrayList<Fish> fishies = new ArrayList<Fish>();
 int timer, eventTimer;
 int barHeight;
 int multi;
+PFont font;
+String fName = "Champagne & Limousines";
 boolean nextLevelAnimation;
 boolean win;
 
@@ -39,18 +40,15 @@ void draw() {
     highScore = score;
   if (win) {
     winScreen();
-  }
-  else if (!(p.dead) && !win) {
-    fill(0, 100);
-    rect(0, 0, width, height);    
+  } else if (!(p.dead) && !win) {
+    fillBlack(); 
     p.update();
     updateFish();
     nextLevelCheck();
     if (!nextLevelAnimation) 
       addFish();     
     //menu bar
-    fill(255, 255);
-    rect(0, 0, width, barHeight);
+    drawBar();
     b.redraw();
     p.displayLives();
   } else 
@@ -115,14 +113,13 @@ boolean canBeEaten(Fish t) {
 }
 
 Fish randomFish(int s) {
-  return new Fish(s, (int)random(2) * width, random(height - barHeight) + barHeight, false);
+  return new Fish(s, width / 2 + ((int)random(2) * 2 - 1) * (width + s) / 2, random(height - barHeight) + barHeight, false);
 }
 
 void eat(Fish f) {
   p.upsize((f.size + 5) / p.size * 0.25);
-  if (!b.frenzy) 
+  if (!b.frenzy)
     b.addPercent((f.size + 5) / p.size * f.size * multi);
-  //fishies.add(randomFish((int)f.size));
   fishies.remove(f);
 }
 
@@ -139,44 +136,66 @@ void addFish() {
     fishies.add(randomFish(50));
 }
 
-void gameOptions(){
-  textSize(30);
-  text("revive?", width / 2 - 100, height / 2 + 30);
+void gameOptions() {
+  font = createFont(fName, 30);
+  textFont(font);
+  text("restart level?", width / 2 - 100, height / 2 + 30);
   text("start over?", width / 2 + 100, height / 2 + 30);
   fill(255);
   if (mousePressed) {
-    if (abs(mouseY - (height / 2 + 30)) < 26) {
-      if (abs(mouseX - (width / 2 - 100)) < 55)
-        p = new Player(width/2, height/2);
-      else if (abs(mouseX - (width / 2 + 100)) < 80)
+    if (abs(mouseY - (height / 2 + 30)) < 30) {
+      if (abs(mouseX - (width / 2 - 100)) < 55) {
+        p = new Player(width/2, 0);
+        p.lifeAnimation = true;
+      } else if (abs(mouseX - (width / 2 + 100)) < 80)
         setup();
+      fishies = new ArrayList<Fish>();
     }
   }
   p.invulnerable += 40;
 }
 
+void replayOptions() {
+  font = createFont(fName, 30);
+  textFont(font);
+  text("replay?", width / 2, height / 2 + 30);
+  if (mousePressed) {
+    if (abs(mouseY - (height / 2 + 30)) < 30) {
+      if (abs(mouseX - (width / 2)) < textWidth("replay?") / 2)
+        setup();
+      fishies = new ArrayList<Fish>();
+    }
+  }
+}
+
 void gameOver() {
+  screen();
+  fill(255);
+  font = createFont(fName, 50);
+  textFont(font);
   textAlign(CENTER);
-  textSize(50);
   text("GAME OVER", width / 2, height / 2);
   gameOptions();
+}
+
+void winScreen() {
+  screen();
+  textAlign(CENTER);
+  font = createFont(fName, 50);
+  textFont(font);
+  fill(255);
+  text("YOU WIN", width / 2, (height + barHeight) / 2 - 50);
+  replayOptions();
 }
 
 void displayLevel() {
   if (timer <= eventTimer + 120) {
     fill(255);
-    textSize(50);
+    font = createFont(fName, 50);
+    textFont(font);
     textAlign(CENTER);
     text("Level " + multi, width / 2, height / 2);
   }
-}
-
-void winScreen() {
-  textAlign(CENTER);
-  textSize(50);
-  fill(255);
-  text("YOU WIN", width / 2, (height + barHeight) / 2 - 50);
-  gameOptions();
 }
 
 void loadStages() {
@@ -187,5 +206,27 @@ void loadStages() {
   stages.moveToNextStage();
   //stages.moveToNextStage();
   //stages.moveToNextStage();
+}
+
+void screen() {
+  fillBlack();
+  for (Fish f : fishies) 
+    f.update();
+  addFish();
+  drawBar();
+  b.redraw();
+  p.displayLives();
+  fill(0, 150);
+  rect(0, 0, width, height);
+}
+
+void fillBlack() {
+  fill(0, 90);
+  rect(0, 0, width, height);
+}
+
+void drawBar() {
+  fill(255, 255);
+  rect(0, 0, width, barHeight);
 }
 

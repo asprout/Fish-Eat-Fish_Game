@@ -1,4 +1,4 @@
-class Fish extends Enemy {
+class Fish extends Thing {
   float accelX, accelY;
   int dirX, dirY;
   boolean smaller;
@@ -50,8 +50,10 @@ class Fish extends Enemy {
       }
     }
     if (display) {
-      speedX = 0; speedY = 0;
-      accelX = 0; accelY = 0; 
+      speedX = 0; 
+      speedY = 0;
+      accelX = 0; 
+      accelY = 0;
     }
     centerX += (speedX + accelX) / frameRate * 1.5;
     centerY += (speedY + accelY) / frameRate * 1.5;

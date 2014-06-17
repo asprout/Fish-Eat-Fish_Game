@@ -4,12 +4,15 @@ class Bar {
 
   void displayScore() { 
     fill(237, 83, 22);
-    textAlign(LEFT);
-    textSize(20);
-    text("score:", 200, 45);
-    text(score, 270, 45);
-    text("high:", 330, 45);
-    text(highScore, 400, 45);
+    textAlign(LEFT, TOP);
+    font = createFont(fName, 26);
+    textFont(font);
+    int posX = 250;
+    int posY = barHeight / 2 - 15;
+    text("score: " + score, posX, posY);
+    //text(score, posX + 60, posY);
+    text("high: " + highScore, posX + 160, posY);
+    //text(highScore, posX + 220, posY);
   }
 
   void redraw() {
@@ -43,13 +46,14 @@ class Bar {
   void displayFrenzy() {
     percent -= 0.1;
     textAlign(CENTER);
-    textSize(32);
+    font = createFont(fName, 50);
+    textFont(font);
     fill(#FFCC00);
     text("FRENZY", width / 2, barHeight + 100);
   }
 
   void displayFish() {
-    int x = width / 2 + 75; 
+    int x = width / 2 + 100; 
     int y = barHeight / 2;
     Fish[] fish = new Fish[5];
     for (int i = 0; i < 5; i++) {
