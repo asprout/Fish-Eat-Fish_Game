@@ -24,8 +24,8 @@ A game based off of feeding frenzy using processing
 * Score and high score counts
 
 **What doesn't:**
-	* Not all the boosters we wanted to use are implemented, but otherwise the game runs with few bugs
-	* Screen occasionally flashes when you eat something and there are too many fish on the screen
+* Not all the boosters we wanted to use are implemented, but otherwise the game runs with few bugs
+* Screen occasionally flashes when you eat something and there are too many fish on the screen
 
 **Data structures used:**
 We used a linked list to structure the different levels of the game.
