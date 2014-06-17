@@ -49,19 +49,20 @@ class Bar {
   }
 
   void displayFish() {
-    int x = width / 2; 
+    int x = width / 2 + 75; 
     int y = barHeight / 2;
     Fish[] fish = new Fish[5];
     for (int i = 0; i < 5; i++) {
       int s = (i + 1) * 10;
+      int move = (s + 10) / 2;
       fish[i] = new Fish(s, x, y, true);
       x += s / 2 + 2;
       stroke(0);
       strokeWeight(1);
       if (p.size >= s && p.size < s + 10) 
-        line(x, y - 25, x, y + 25);
+        line(x, y - move, x, y + move);
       noStroke();
-      x += (s + 10) / 2 + 3;
+      x += move + 3;
     }
   }
 }
