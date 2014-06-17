@@ -111,3 +111,5 @@ changed the end screen so that player can play again, fixed bug where game start
 6.16
 
 made invulnerablity longer, frenzy makes the player move a bit faster, frenzy bar doesn't increase during frenzy so the player can't get internal frenzy - Fawn
+
+invulnerability now also works with revival and restart, added new function (revival with same size), decreased chasing radius for larger fish because game is too difficult otherwise, began work on powerups (a +1 life thing?) - Ling

@@ -17,6 +17,12 @@ class Player {
     size = 15;
   }
   
+  Player(float x, float y, float s) {
+    centerX = x;
+    centerY = y;
+    size = s;
+  }
+  
 
   void update() {
     if (b.frenzy) 

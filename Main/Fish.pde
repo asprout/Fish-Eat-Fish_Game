@@ -40,7 +40,7 @@ class Fish extends Enemy {
           accelY += 20 / size * dirY * -0.5;
         }
       } else {
-        if (within(deltaX, deltaY, (int)size * 4)) {
+        if (within(deltaX, deltaY, (int)size * 2)) {
           //acceleration is greater the smaller it is
           accelX += 20 / size * dirX * 1;
           accelY += 20/ size * dirY * 1;
