@@ -2,12 +2,14 @@ class Fish extends Enemy {
   float accelX, accelY;
   int dirX, dirY;
   boolean smaller;
+  boolean display;
 
-  Fish(int size, float startX, float startY) {
+  Fish(int size, float startX, float startY, boolean d) {
     super();
     centerX = startX;
     centerY = startY;
     this.size = size;
+    display = d;
     setThings();
     speedY = 0;
     accelX = 0;
@@ -40,12 +42,16 @@ class Fish extends Enemy {
           accelY += 20 / size * dirY * -0.5;
         }
       } else {
-        if (within(deltaX, deltaY, (int)size * 2)) {
+        if (within(deltaX, deltaY, (int)size * 4)) {
           //acceleration is greater the smaller it is
           accelX += 20 / size * dirX * 1;
           accelY += 20/ size * dirY * 1;
         }
       }
+    }
+    if (display) {
+      speedX = 0; speedY = 0;
+      accelX = 0; accelY = 0; 
     }
     centerX += (speedX + accelX) / frameRate * 1.5;
     centerY += (speedY + accelY) / frameRate * 1.5;

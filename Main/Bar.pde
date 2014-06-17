@@ -2,7 +2,7 @@ class Bar {
   float percent = 0;
   boolean frenzy;
 
-  void displayScore(){ 
+  void displayScore() { 
     fill(237, 83, 22);
     textAlign(LEFT);
     textSize(20);
@@ -28,12 +28,12 @@ class Bar {
     if (frenzy) {
       displayFrenzy();
       if (percent <= 0) 
-       frenzy = false; 
-    }
-    else 
+        frenzy = false;
+    } else 
       percent -= 0.03;
     rect(34, 34, 142*percent*0.01, 13);  
     displayScore();
+    displayFish();
   }
 
   void addPercent(float s) {
@@ -46,6 +46,23 @@ class Bar {
     textSize(32);
     fill(#FFCC00);
     text("FRENZY", width / 2, barHeight + 100);
+  }
+
+  void displayFish() {
+    int x = width / 2; 
+    int y = barHeight / 2;
+    Fish[] fish = new Fish[5];
+    for (int i = 0; i < 5; i++) {
+      int s = (i + 1) * 10;
+      fish[i] = new Fish(s, x, y, true);
+      x += s / 2 + 2;
+      stroke(0);
+      strokeWeight(1);
+      if (p.size >= s && p.size < s + 10) 
+        line(x, y - 25, x, y + 25);
+      noStroke();
+      x += (s + 10) / 2 + 3;
+    }
   }
 }
 

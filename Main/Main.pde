@@ -2,7 +2,6 @@ Player p;
 Enemy e;
 Bar b;
 StageList stages;
-Powerup power;
 int score;
 int highScore;
 ArrayList<Fish> fishies = new ArrayList<Fish>();
@@ -25,7 +24,6 @@ void setup() {
   p.invulnerable = 0;
   b = new Bar();
   stages = new StageList();
-  power = new Powerup(10, 20);
   loadStages();
   multi = stages.head.multiplier;
   p.lifeAnimation = true;
@@ -33,9 +31,7 @@ void setup() {
 }
 
 void draw() {
-  print(p.invulnerable);
   displayLevel();
-  power.addLife(mouseX);
   if (p.invulnerable > 0)
     p.invulnerable -= 1;
   timer = timer + 1;
@@ -119,7 +115,7 @@ boolean canBeEaten(Fish t) {
 }
 
 Fish randomFish(int s) {
-  return new Fish(s, (int)random(2) * width, random(height - barHeight) + barHeight);
+  return new Fish(s, (int)random(2) * width, random(height - barHeight) + barHeight, false);
 }
 
 void eat(Fish f) {
@@ -147,7 +143,6 @@ void gameOptions(){
   textSize(30);
   text("revive?", width / 2 - 100, height / 2 + 30);
   text("start over?", width / 2 + 100, height / 2 + 30);
-  text("try again?", width/2, height/2 + 80);
   fill(255);
   if (mousePressed) {
     if (abs(mouseY - (height / 2 + 30)) < 26) {
@@ -156,14 +151,8 @@ void gameOptions(){
       else if (abs(mouseX - (width / 2 + 100)) < 80)
         setup();
     }
-    else if (abs(mouseY - (height/2 + 80)) < 26) {
-      if (abs(mouseX - (width/2)) < 60){
-        float temp = p.size;
-        p = new Player(width/2, height/2, temp);
-      }
-    }
   }
-  p.invulnerable += 240;
+  p.invulnerable += 40;
 }
 
 void gameOver() {
