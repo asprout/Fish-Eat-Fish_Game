@@ -8,6 +8,7 @@ Ling Dong, Fawn Wong
 A game based off of feeding frenzy using processing
 
 **Instructions:**
+
 *To run:* Either run "processing Main/Main.pde" when in the project folder or open it directly through the processing editor.
 
 * Use your mouse to control the white fish.
