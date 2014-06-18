@@ -24,7 +24,7 @@ class Stage {
     if (startTimer < 180) {
       fill(0, fade);
       rect(0, 0, width, height);
-      fade *= 0.95;
+      fade *= 0.99;
       startTimer += 1;
     }
     if (mousePressed && startTimer > 30) {

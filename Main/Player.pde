@@ -26,10 +26,8 @@ class Player {
 
 
   void update() {
-    if (invulnerable > 0){
-      filter(DILATE);
-      redraw();
-    }
+    if (invulnerable > 0) 
+      drawGlow(#ADD6FF, 75);
     if (b.frenzy) 
       springing = 0.05;
     else 
@@ -46,6 +44,16 @@ class Player {
     redraw();
   }
 
+  void drawGlow(int c, int f) {
+    float fade = f;
+    float s = size;
+    while (fade > 1) {
+      fill(c, fade);
+      ellipse(centerX, centerY, s, s);
+      s += 2;
+      fade *= 0.75;
+    }
+  }
   void displayLives() {
     int temp = 0;
     int pos = 900;

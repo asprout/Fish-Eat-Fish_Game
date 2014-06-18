@@ -126,4 +126,4 @@ start screen! - Fawn
 
 finished work on powerups, fixed small errors, you can now tell if player is invulnerable or not - Ling
 
-Fixed concurrent modification error - Fawn
+Fixed concurrent modification error, fixed glow bug, doesn't slow down anymore, you can now eat when you are invulnerable - Fawn

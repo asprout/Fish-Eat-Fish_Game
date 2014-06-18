@@ -15,7 +15,7 @@ A game based off of feeding frenzy using processing
 * Eat smaller fish to grow bigger and score points.
 * The bigger the fish you eat, the more points you get.
 * If you are eaten by a fish larger than you, you lose a life.
-* Certain events make you invulnerable. The fishes will glow if you are.
+* Certain events make you invulnerable, and you glow when you are.
 * Lose all three lives and game over.
 * Eat the powerups to gain a random booster
 * When you reach a certain size, you move on to the next level.
@@ -29,14 +29,14 @@ A game based off of feeding frenzy using processing
 * Frenzy bar
 * Life "bar"
 * New life animations
-* invulnerability : after death/new level/etc, you will be invulnerable for a limited time. However, you will also be unable to eat during this time.
+* Invulnerability : after death/new level/etc, you will be invulnerable for a limited time. 
 * Score and high score counts
 * Start screen
 * Restart level, restart game options
 * Powerups!
   The flashing dots are powerups and can always be eaten, though harder to catch
       They give a random effect, in order of most common to least..
-      	   1) +1 health (nothing happens if you have 3 lives)
+       1) +1 health (nothing happens if you have 3 lives)
 	   2) temporary invulnerability
 	   3) temporary speed boost
 	   4) score multiplier

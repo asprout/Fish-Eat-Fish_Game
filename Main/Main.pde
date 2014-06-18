@@ -100,7 +100,7 @@ void updateFish() {
     } 
     if (canBeEaten(f)) {
       p.loseLife();
-      p.invulnerable += 240;
+      p.invulnerable += 270;
       break;
     }
   }
@@ -133,7 +133,7 @@ boolean touching(Fish t) {
 }
 
 boolean canEat(Fish t) {
-  return touching(t) && (t.size < p.size) && !p.lifeAnimation && !(p.invulnerable > 0);
+  return touching(t) && (t.size < p.size) && !p.lifeAnimation;
 }
 
 boolean canBeEaten(Fish t) {
