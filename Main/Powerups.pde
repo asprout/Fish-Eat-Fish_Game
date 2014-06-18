@@ -1,7 +1,7 @@
 class Powerup extends Fish {
 
   Powerup(int size) {
-    super(size, random(1000), random(600));
+    super(size, (int)random(2) * width, random(height));
     speedY = 0;
     speedX = 150;
     accelX = 0;

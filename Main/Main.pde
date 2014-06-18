@@ -167,7 +167,7 @@ void addFish() {
 }
 
 void addPowers(){
-  if (random(1000) < 1)
+  if (random(2000) < 1)
     powers.add(new Powerup(10));
 }
 
