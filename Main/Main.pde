@@ -36,6 +36,7 @@ void draw() {
     stages.head.startScreen();
   } else {
     displayLevel();
+    multi = stages.head.multiplier;
     if (p.invulnerable > 0)
       p.invulnerable -= 1;
     timer = timer + 1;
@@ -89,10 +90,10 @@ void nextLevelCheck() {
     p.size -= 0.25;
     if (p.size <= 15) {
       nextLevelAnimation = false;
-      stages.moveToNextStage();
-      if (stages.head == null) 
+      if (stages.head.getNextStage() == null) 
         win = true;
       else {
+        stages.moveToNextStage();
         multi = stages.head.multiplier;
         eventTimer = timer;
       }
@@ -203,11 +204,10 @@ void displayLevel() {
 }
 
 void loadStages() {
-  //stages.add(new Stage("start"));
   stages.add(new Stage("one", 1)); 
   stages.add(new Stage("two", 2));  
   stages.add(new Stage("three", 3)); 
-  //need this to get past initial empty head stage;
+  //need this to cheat past stages;
   //stages.moveToNextStage();
   //stages.moveToNextStage();
   //stages.moveToNextStage();

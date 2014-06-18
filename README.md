@@ -23,6 +23,8 @@ A game based off of feeding frenzy using processing
 * Frenzy bar
 * New life animations and invulnerability
 * Score and high score counts
+* Start screen
+* Restart level, restart game options
 
 **What doesn't:**
 * Not all the boosters we wanted to use are implemented, but otherwise the game runs with few bugs

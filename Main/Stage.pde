@@ -6,14 +6,53 @@ class Stage {
   int startTimer;
   int fade = 255;
   int fadeAgain = 255;
-  float x, y, size = 1;
-
+  float x, y, size = 10;
 
   Stage(String s) {
     name = s;
   }
 
+  Stage (String s, int m) {
+    name = s;
+    multiplier = m;
+    colorList = new int[5][3];
+    loadColors(name);
+  }
+
   void startScreen() {
+    drawText();
+    if (startTimer < 180) {
+      fill(0, fade);
+      rect(0, 0, width, height);
+      fade *= 0.95;
+      startTimer += 1;
+    }
+    if (mousePressed && startTimer > 30) {
+      if (abs(mouseX -  2 * width / 3) < 150 && (abs(mouseY -  height / 2) < 150)) {
+        x = mouseX;
+        y = mouseY;
+      }
+    }
+    if (x != 0 && y != 0) {
+      fill(0);
+      size *= 1.05;
+      ellipse(x, y, size, size);
+      if (size >= 1200) {
+        colorList = new int[5][3];
+        loadColors("one");
+        drawBar();
+        b.redraw();
+        p.displayLives();
+        fill(0, fadeAgain);
+        rect(0, 0, width, height);
+        fadeAgain *= 0.95; 
+        if (fadeAgain <= 10)
+          stages.moveToNextStage();
+      }
+    }
+  }
+
+  void drawText() {
     int xshift = 105;
     int yshift = 83;
     int yAdj = 20;
@@ -39,42 +78,6 @@ class Stage {
     fill(255);
     textAlign(RIGHT, BASELINE);
     text("by ling dong and fawn wong", width - 10, height - 10);
-    if (startTimer < 180) {
-      fill(0, fade);
-      rect(0, 0, width, height);
-      fade *= 0.95;
-      startTimer += 1;
-    }
-    if (mousePressed && startTimer > 30) {
-      if (abs(mouseX -  2 * width / 3) < 150 && (abs(mouseY -  height / 2) < 150)) {
-        x = mouseX;
-        y = mouseY;
-      }
-    }
-    if (x != 0 && y != 0) {
-      fill(0);
-      size *= 1.1;
-      ellipse(x, y, size, size);
-      if (size >= 1200) {
-        colorList = new int[5][3];
-        loadColors("one");
-        drawBar();
-        b.redraw();
-        p.displayLives();
-        fill(0, fadeAgain);
-        rect(0, 0, width, height);
-        fadeAgain *= 0.95; 
-        if (fadeAgain <= 10)
-          stages.moveToNextStage();
-      }
-    }
-  }
-
-  Stage (String s, int m) {
-    name = s;
-    multiplier = m;
-    colorList = new int[5][3];
-    loadColors(name);
   }
 
   void loadColors(String n) {
