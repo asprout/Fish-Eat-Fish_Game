@@ -11,8 +11,8 @@ Period 1
 A game based off of feeding frenzy using processing
 
 **Instructions:**
-* -1. In terminal, type in "processing Main.pde" OR open file from a folder
-* 0. Click Run (play symbol)
+1. In terminal, type in "processing Main.pde" OR open file from a folder
+2. Click Run (play symbol)
 * Use your mouse to control the white fish. NOTE: There is acceleration!
 * Eat smaller fish to grow bigger and score points.
 * The bigger the fish you eat, the more points you get.
