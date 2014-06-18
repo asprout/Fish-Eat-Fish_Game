@@ -3,7 +3,7 @@ class StageList {
   int size;
 
   StageList() {
-    head = new Stage();
+    head = new Stage("start");
     size = 0;
   }
 

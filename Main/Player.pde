@@ -71,7 +71,7 @@ class Player {
   }
 
   void upsize(float i) {
-    size+=i;
+    size+=i * 1.5;
   }
 
   void redraw() {

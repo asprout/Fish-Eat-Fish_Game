@@ -29,6 +29,8 @@ A game based off of feeding frenzy using processing
 * New life animations
 * invulnerability : after death/new level/etc, you will be invulnerable for a limited time. However, you will also be unable to eat during this time.
 * Score and high score counts
+* Start screen
+* Restart level, restart game options
 
 **What doesn't:**
 * Not all the boosters we wanted to use are implemented, but otherwise the game runs with few bugs

@@ -28,34 +28,38 @@ void setup() {
   b = new Bar();
   stages = new StageList();
   loadStages();
-  multi = stages.head.multiplier;
+  multi = 1;
   p.lifeAnimation = true;
   win = false;
 }
 
 void draw() {
-  displayLevel();
-  pow.addLife(mouseX);
-  if (p.invulnerable > 0)
-    p.invulnerable -= 1;
-  timer = timer + 1;
-  if (score > highScore)
-    highScore = score;
-  if (win) {
-    winScreen();
-  } else if (!(p.dead) && !win) {
-    fillBlack(); 
-    p.update();
-    updateFish();
-    nextLevelCheck();
-    if (!nextLevelAnimation) 
-      addFish();     
-    //menu bar
-    drawBar();
-    b.redraw();
-    p.displayLives();
-  } else 
-    gameOver();
+  if (stages.head.name.equals("start")) {
+    stages.head.startScreen();
+  } else {
+    displayLevel();
+    multi = stages.head.multiplier;
+    if (p.invulnerable > 0)
+      p.invulnerable -= 1;
+    timer = timer + 1;
+    if (score > highScore)
+      highScore = score;
+    if (win) {
+      winScreen();
+    } else if (!(p.dead) && !win) {
+      fillBlack(); 
+      p.update();
+      updateFish();
+      nextLevelCheck();
+      if (!nextLevelAnimation) 
+        addFish();     
+      //menu bar
+      drawBar();
+      b.redraw();
+      p.displayLives();
+    } else 
+      gameOver();
+  }
 }
 
 void updateFish() {
@@ -88,10 +92,10 @@ void nextLevelCheck() {
     p.size -= 0.25;
     if (p.size <= 15) {
       nextLevelAnimation = false;
-      stages.moveToNextStage();
-      if (stages.head == null) 
+      if (stages.head.getNextStage() == null) 
         win = true;
       else {
+        stages.moveToNextStage();
         multi = stages.head.multiplier;
         eventTimer = timer;
       }
@@ -205,8 +209,8 @@ void loadStages() {
   stages.add(new Stage("one", 1)); 
   stages.add(new Stage("two", 2));  
   stages.add(new Stage("three", 3)); 
-  //need this to get past initial empty head stage;
-  stages.moveToNextStage();
+  //need this to cheat past stages;
+  //stages.moveToNextStage();
   //stages.moveToNextStage();
   //stages.moveToNextStage();
 }
@@ -232,4 +236,5 @@ void drawBar() {
   fill(255, 255);
   rect(0, 0, width, barHeight);
 }
+
 
