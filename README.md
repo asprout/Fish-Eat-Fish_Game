@@ -3,12 +3,15 @@ pd1-FishEatFish-Ling-Fawn
 
 **Group Members:**
 Ling Dong, Fawn Wong
+Period 1
 
 **Description:** 
 A game based off of feeding frenzy using processing
 
 **Instructions:**
-* Use your mouse to control the white fish.
+-1. In terminal, type in "processing Main.pde" OR open file from a folder
+0. Click Run (play symbol)
+* Use your mouse to control the white fish. NOTE: There is acceleration!
 * Eat smaller fish to grow bigger and score points.
 * The bigger the fish you eat, the more points you get.
 * If you are eaten by a fish larger than you, you lose a life.
@@ -17,11 +20,14 @@ A game based off of feeding frenzy using processing
 * Eat enough fish in a short period and you go into a frenzy! You temporarily speed up and get a score bonus.
 
 **What works:**
+* Random fish loading onto screen
 * Fish run away / chase you depending on size
 * Transition animations between levels
 * Display that shows what you can and cannot eat
 * Frenzy bar
-* New life animations and invulnerability
+* Life "bar"
+* New life animations
+* invulnerability : after death/new level/etc, you will be invulnerable for a limited time. However, you will also be unable to eat during this time.
 * Score and high score counts
 
 **What doesn't:**

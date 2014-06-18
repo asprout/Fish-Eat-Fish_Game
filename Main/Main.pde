@@ -1,6 +1,7 @@
 Player p;
 Bar b;
 StageList stages;
+Powerup pow;
 int score;
 int highScore;
 ArrayList<Fish> fishies = new ArrayList<Fish>();
@@ -20,6 +21,7 @@ void setup() {
   timer = 0;
   eventTimer = 0;
   barHeight = 80;
+  pow = new Powerup();
   background(0);
   p = new Player(width/2, 0);
   p.invulnerable = 0;
@@ -33,6 +35,7 @@ void setup() {
 
 void draw() {
   displayLevel();
+  pow.addLife(mouseX);
   if (p.invulnerable > 0)
     p.invulnerable -= 1;
   timer = timer + 1;
@@ -79,7 +82,7 @@ void updateFish() {
 }
 
 void nextLevelCheck() {
-  if (p.size >= 48) 
+  if (p.size >= 50) 
     nextLevelAnimation = true; 
   if (nextLevelAnimation && fishies.size() == 0) {
     p.size -= 0.25;

@@ -8,6 +8,9 @@ class Powerup extends Thing {
    float foodValue;
    float centerX, centerY;
    */
+   
+  Powerup(){
+  }
 
   Powerup(float sp, float sz) {
     speedX = sp;
