@@ -113,3 +113,8 @@ changed the end screen so that player can play again, fixed bug where game start
 made invulnerablity longer, frenzy makes the player move a bit faster, frenzy bar doesn't increase during frenzy so the player can't get eternal frenzy, changed fonts, created bar that lets you know what you can and can't eat - Fawn
 
 invulnerability now also works with revival and restart, added new function (revival with same size), decreased chasing radius for larger fish because game is too difficult otherwise, began work on powerups (a +1 life thing?) - Ling
+
+
+6.17
+
+start screen! - Fawn
