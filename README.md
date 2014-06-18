@@ -1,19 +1,15 @@
 pd1-FishEatFish-Ling-Fawn
 =========================
 
-**Group Members:**
-
-Ling Dong, Fawn Wong
-
-Period 1
+**Group Members:** Ling Dong, Fawn Wong - Period 1
 
 **Description:** 
 A game based off of feeding frenzy using processing
 
 **Instructions:**
 
-1. In terminal, type in "processing Main.pde" OR open file from a folder
-2. Click Run (play symbol)
+	1. In terminal, type in "processing Main.pde" OR open file from a folder
+	2. Click Run (play symbol)
 
 * Use your mouse to control the white fish. NOTE: There is acceleration!
 * Eat smaller fish to grow bigger and score points.
