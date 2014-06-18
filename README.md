@@ -9,8 +9,8 @@ Period 1
 A game based off of feeding frenzy using processing
 
 **Instructions:**
--1. In terminal, type in "processing Main.pde" OR open file from a folder
-0. Click Run (play symbol)
+* -1. In terminal, type in "processing Main.pde" OR open file from a folder
+* 0. Click Run (play symbol)
 * Use your mouse to control the white fish. NOTE: There is acceleration!
 * Eat smaller fish to grow bigger and score points.
 * The bigger the fish you eat, the more points you get.
@@ -34,12 +34,12 @@ A game based off of feeding frenzy using processing
 * Start screen
 * Restart level, restart game options
 * Powerups!
-  The flashing dots are powerups and can always be eaten, though harder to catch
-      They give a random effect, in order of most common to least..
-      	   1) +1 health (nothing happens if you have 3 lives)
-	   2) temporary invulnerability
-	   3) temporary speed boost
-	   4) score multiplier
+*  The flashing dots are powerups and can always be eaten, though harder to catch
+*      They give a random effect, in order of most common to least..
+*      	   1) +1 health (nothing happens if you have 3 lives)
+*	   2) temporary invulnerability
+*	   3) temporary speed boost
+*	   4) score multiplier
 
 **What doesn't:**
 * Screen occasionally flashes when you eat something and there are too many fish on the screen
