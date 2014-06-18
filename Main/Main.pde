@@ -103,7 +103,7 @@ void updateFish() {
 }
 
 void nextLevelCheck() {
-  if (p.size >= 50) 
+  if (p.size >= 49) 
     nextLevelAnimation = true; 
   if (nextLevelAnimation && fishies.size() == 0 && powers.size() == 0) {
     p.size -= 0.25;
