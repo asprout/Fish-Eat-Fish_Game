@@ -124,6 +124,6 @@ start screen! - Fawn
 
 6.18
 
-Life powerup - Ling
+finished work on powerups, fixed small errors, you can now tell if player is invulnerable or not - Ling
 
 Fixed concurrent modification error - Fawn

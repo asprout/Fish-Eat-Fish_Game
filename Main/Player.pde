@@ -10,6 +10,7 @@ class Player {
   boolean dead;
   boolean lifeAnimation;
   int invulnerable;
+  int speedBoost;
 
   Player(float x, float y) {
     centerX = x;
@@ -25,6 +26,10 @@ class Player {
 
 
   void update() {
+    if (invulnerable > 0){
+      filter(DILATE);
+      redraw();
+    }
     if (b.frenzy) 
       springing = 0.05;
     else 

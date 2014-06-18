@@ -40,6 +40,10 @@ void draw() {
     multi = stages.head.multiplier;
     if (p.invulnerable > 0)
       p.invulnerable -= 1;
+    if (p.speedBoost > 0){
+      p.speedBoost -= 1;
+      p.springing += .001;
+    }
     timer = timer + 1;
     if (score > highScore)
       highScore = score;
@@ -103,7 +107,7 @@ void updateFish() {
 }
 
 void nextLevelCheck() {
-  if (p.size >= 49) 
+  if (p.size >= 55) 
     nextLevelAnimation = true; 
   if (nextLevelAnimation && fishies.size() == 0 && powers.size() == 0) {
     p.size -= 0.25;
@@ -141,8 +145,22 @@ Fish randomFish(int s) {
 }
 
 void absorb(Powerup pow){
-  if (p.lives < 3)
-    p.lives++;
+  if (random(2) < 1){
+    if (p.lives < 3)
+      p.lives++;
+  }
+  else if (random(500) < 1){
+    score = (round(score * 1.5));
+    if (b.frenzy)
+      score = (round(score * 1.5));
+  }
+  else if (random(10) < 1){
+    p.speedBoost = 50;
+    p.springing = 0.05;
+  }
+  else{
+    p.invulnerable = 250;
+  }
   powers.remove(pow);
 }
 
