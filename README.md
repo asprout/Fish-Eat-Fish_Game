@@ -34,8 +34,9 @@ A game based off of feeding frenzy using processing
 * Start screen
 * Restart level, restart game options
 * Powerups!
+
 	*The flashing dots are powerups and can always be eaten, though they are harder to catch. They give a random effect, in order of most common to least...
-	
+
 		1. +1 health (nothing happens if you have 3 lives)
 		2. temporary invulnerability
 		3. temporary speed boost
