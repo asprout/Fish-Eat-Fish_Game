@@ -125,3 +125,5 @@ start screen! - Fawn
 6.18
 
 Life powerup - Ling
+
+Fixed concurrent modification error - Fawn

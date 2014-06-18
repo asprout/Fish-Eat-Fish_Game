@@ -72,6 +72,7 @@ void updatePowers(){
     }
     else if (touching(po)){
       absorb(po);
+      break;
     }
   }
 }
