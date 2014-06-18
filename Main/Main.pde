@@ -1,10 +1,10 @@
 Player p;
 Bar b;
 StageList stages;
-Powerup pow;
 int score;
 int highScore;
 ArrayList<Fish> fishies = new ArrayList<Fish>();
+ArrayList<Powerup> powers = new ArrayList<Powerup>();
 int timer, eventTimer;
 int barHeight;
 int multi;
@@ -21,7 +21,6 @@ void setup() {
   timer = 0;
   eventTimer = 0;
   barHeight = 80;
-  pow = new Powerup();
   background(0);
   p = new Player(width/2, 0);
   p.invulnerable = 0;
@@ -49,10 +48,12 @@ void draw() {
     } else if (!(p.dead) && !win) {
       fillBlack(); 
       p.update();
+      updatePowers();
       updateFish();
       nextLevelCheck();
       if (!nextLevelAnimation) 
-        addFish();     
+        addFish();   
+        addPowers();
       //menu bar
       drawBar();
       b.redraw();
@@ -61,6 +62,21 @@ void draw() {
       gameOver();
   }
 }
+
+void updatePowers(){
+  for (Powerup po : powers){
+    po.update();
+    if (po.outOfBounds()){
+      powers.remove(po);
+      break;
+    }
+    else if (touching(po)){
+      absorb(po);
+    }
+  }
+}
+      
+    
 
 void updateFish() {
   for (Fish f : fishies) {
@@ -88,7 +104,7 @@ void updateFish() {
 void nextLevelCheck() {
   if (p.size >= 50) 
     nextLevelAnimation = true; 
-  if (nextLevelAnimation && fishies.size() == 0) {
+  if (nextLevelAnimation && fishies.size() == 0 && powers.size() == 0) {
     p.size -= 0.25;
     if (p.size <= 15) {
       nextLevelAnimation = false;
@@ -123,6 +139,12 @@ Fish randomFish(int s) {
   return new Fish(s, width / 2 + ((int)random(2) * 2 - 1) * (width + s) / 2, random(height - barHeight) + barHeight, false);
 }
 
+void absorb(Powerup pow){
+  if (p.lives < 3)
+    p.lives++;
+  powers.remove(pow);
+}
+
 void eat(Fish f) {
   p.upsize((f.size + 5) / p.size * 0.25);
   if (!b.frenzy)
@@ -143,6 +165,11 @@ void addFish() {
     fishies.add(randomFish(50));
 }
 
+void addPowers(){
+  if (random(1000) < 1)
+    powers.add(new Powerup(10));
+}
+
 void gameOptions() {
   font = createFont(fName, 30);
   textFont(font);
@@ -157,6 +184,7 @@ void gameOptions() {
       } else if (abs(mouseX - (width / 2 + 100)) < 80)
         setup();
       fishies = new ArrayList<Fish>();
+      powers = new ArrayList<Powerup>();
     }
   }
   p.invulnerable += 40;
@@ -171,6 +199,7 @@ void replayOptions() {
       if (abs(mouseX - (width / 2)) < textWidth("replay?") / 2)
         setup();
       fishies = new ArrayList<Fish>();
+      powers = new ArrayList<Powerup>();
     }
   }
 }
@@ -219,7 +248,10 @@ void screen() {
   fillBlack();
   for (Fish f : fishies) 
     f.update();
+  for (Powerup po : powers)
+    po.update();
   addFish();
+  addPowers();
   drawBar();
   b.redraw();
   p.displayLives();

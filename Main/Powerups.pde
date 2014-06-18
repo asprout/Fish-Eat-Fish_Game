@@ -1,30 +1,24 @@
-class Powerup extends Thing {
+class Powerup extends Fish {
 
-  /*float speedX, speedY;
-   float size;
-   int r, g, b;
-   float freq;
-   float pointValue;
-   float foodValue;
-   float centerX, centerY;
-   */
-   
-  Powerup(){
-  }
-
-  Powerup(float sp, float sz) {
-    speedX = sp;
-    speedY = sp;
-    size = sz;
-  }
-
-  void addLife(int xy) {
-    if (random(100) < 2) {
-      //strokeWeight(1);
-      //stroke(255, 0, 0); 
-      fill(255, 0, 0);
-      ellipse((float)xy, (float)xy, size, size);
-    }
+  Powerup(int size) {
+    super(size, random(1000), random(600));
+    speedY = 0;
+    speedX = 150;
+    accelX = 0;
+    accelY = 0;
+    r = 255;
+    g = 0;
+    b = 0;
+    if (centerX < width/2)
+      dirX = 1;
+    else
+      dirX = -1;
+    if (centerY < height/2)
+      dirY = 1;
+    else
+      dirY = -1;
+    speedX *= dirX;
+    redraw();
   }
 }
 

@@ -3,6 +3,27 @@ class Fish extends Thing {
   int dirX, dirY;
   boolean smaller;
   boolean display;
+  
+  Fish(int size, float startX, float startY) {
+    super();
+    centerX = startX;
+    centerY = startY;
+    this.size = size;
+    display = false;
+    speedY = 0;
+    accelX = 0;
+    accelY = 0;
+    if (startX < width/2)
+      dirX = 1;
+    else
+      dirX = -1;
+    if (startY < height/2)
+      dirY = 1;
+    else
+      dirY = -1;
+    speedX *= dirX;
+    redraw();
+  }
 
   Fish(int size, float startX, float startY, boolean d) {
     super();

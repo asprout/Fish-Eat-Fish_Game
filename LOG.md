@@ -120,3 +120,7 @@ invulnerability now also works with revival and restart, added new function (rev
 Level now only ends if player can eat largest fish - Ling
 
 start screen! - Fawn
+
+6.18
+
+Life powerup - Ling
