@@ -16,6 +16,7 @@ A game based off of feeding frenzy using processing
 * The bigger the fish you eat, the more points you get.
 * If you are eaten by a fish larger than you, you lose a life.
 * Lose all three lives and game over.
+* Eat the red fish to gain a life.
 * When you reach a certain size, you move on to the next level.
 * Eat enough fish in a short period and you go into a frenzy! You temporarily speed up and get a score bonus.
 
